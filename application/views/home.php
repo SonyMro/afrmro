@@ -24,7 +24,7 @@
 			</a>
 		</div>
 	</div>
-	<!--
+	<!-- 
 	<div class="row">
 		<div class="col-md-4">
 			<div class="card text-white bg-dark" style="width: 18rem;">
@@ -78,4 +78,4 @@
 			});
 		}
 	</script>
-</div>
+</div> 
