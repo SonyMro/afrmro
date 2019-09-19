@@ -1,0 +1,66 @@
+body { 
+   /*background:#332619;*/ 
+	font-size: 12px;
+	font-family: "arial";
+   	color:#FFF; 
+	background: linear-gradient(to left, #443935, #725e56 80%, #9d887f);
+	/*background-image : url('../image/africam.png') no-repeat center center;;
+	background-color: #b17c54;  Used if the image is unavailable */
+}
+
+/*
+ .navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+/*.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+  background-color:brown;
+}
+.dropdown-content {
+  display: none;
+	position: absolute;
+	 float: right;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.show {
+  display: block;
+} https://www.w3schools.com/w3css/w3css_dropdowns.asp
+*/
