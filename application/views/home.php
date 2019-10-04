@@ -1,26 +1,42 @@
-<div class="container-fluid">
+<style>
+	.font {
+		font-family: 'Luckiest Guy', cursive;
+		font-size: 12px;
+	}
+</style>
+<div class="container-fluid font">
 	<br />
 	<center>
-		<h1>¿Qué tal tu visita explorador? <br> Ayúdanos a ser mejores.</h1>
+		<h1 class="brillo">
+			<font color='#e67e22'> ¿Qué tal tu visita explorador?</font> <br>
+			<font color='#f4d03f'>!Ayúdanos a ser mejores¡</font>
+		</h1>
 	</center> <br> <br> <br>
 	<div class="row p-2">
 
 		<div class="col p-3 salto" id="salto1">
 			<a class="btn btn-success" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 					<h4> ¿Quieres felicitarnos?</h4>
-				</strong>
+				</strong> <br>
+				<img src="<?php echo base_url() ?>image/felicidad.png" width="100" height="100" alt="https://www.flaticon.es/icono-gratis/programar_1497835">
+
 			</a>
 		</div>
 		<div class="col p-3 salto" id="salto2">
-			<a class="btn btn-success" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h4> Si tienes una reservación <br> ingresa aquí</h4>
+			<a class="btn btn-success" style=" color:#852a1f; bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+					<h5> Si tienes una reservación</h5>
+					<h4>¡ingresa aquí!</h4>
 				</strong>
+				<img src="<?php echo base_url() ?>image/reser.png" width="100" height="100" alt="https://www.flaticon.es/icono-gratis/programar_1497835">
+
 			</a>
 		</div>
 		<div class="col p-3 salto" id="salto1">
 			<a class="btn btn-success" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h4>¿Quieres dejarnos una <br>queja o sugerencia?</h4>
+					<h5>¿Quieres dejarnos una <br>queja o sugerencia?</h5>
 				</strong>
+				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+
 			</a>
 		</div>
 	</div>
@@ -63,7 +79,8 @@
 			setInterval(function() {
 				menos();
 				mas();
-			}, 1500);
+				//opacidadTitulo();
+			}, 3500);
 		});
 
 		function menos() {
@@ -72,11 +89,18 @@
 				top: '-=60px'
 			});
 		}
+
 		function mas() {
 			$(".salto").animate({
 				top: '+=60px'
 			});
 		}
+
+		function opacidadTitulo() {
+			$('.brillo').animate({
+				opacity: 0.5;
+			});
+		}
 	</script>
-</div> 
+</div>
 <!--probando git-->

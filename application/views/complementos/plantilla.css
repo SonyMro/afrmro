@@ -1,4 +1,10 @@
+
 body { 
    background:#b17c54; 
-   color:#FFF; 
+	color:#FFF;
+}
+
+.font{
+	font-family: 'Luckiest Guy', cursive;
+		font-size: 12px;
 }
