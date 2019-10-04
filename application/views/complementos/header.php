@@ -31,9 +31,17 @@
 				<img src="<?php echo base_url() ?>image/user.svg" alt="" width="30px" height="30px">
 			</button>
 			<div class="dropdown-menu dropdown-menu-right">
-				<button class="dropdown-item" type="button">Action</button>
-				<button class="dropdown-item" type="button">Another action</button>
-				<button class="dropdown-item" type="button">Something else here</button>
+				<button class="dropdown-item" type="button">Iniciar sesión</button>
+				<button class="dropdown-item" type="button">Ver resultados</button>
+				<button class="dropdown-item" type="button">Gestionar preguntas.</button>
+				<button class="dropdown-item" type="button">Gestionar respuestas.</button>
+				<button class="dropdown-item" type="button">Gestionar premios.</button>
+				<button class="dropdown-item" type="button">Gestionar buzon.</button>
+				<button class="dropdown-item" type="button">Gestionar gerencias.</button>
+				<button class="dropdown-item" type="button">Gestionar Usuarios.</button>
+				<button class="dropdown-item" type="button">Gestionar Encuestas.</button>
+				<button class="dropdown-item" type="button">Gestionar Felicitaciones.</button>
+				<button class="dropdown-item" type="button">Cerrar Seccion.</button>
 			</div>
 		</div>
 	</nav>
