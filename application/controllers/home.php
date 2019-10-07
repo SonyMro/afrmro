@@ -36,9 +36,15 @@ class Home extends CI_Controller {
 		$this->load->view('felicitaciones');
 		$this->load->view('../views/complementos/footer');
 }
-public function QuejasSugerencias(){
+	public function QuejasSugerencias()
+	{
 		$this->load->view('../views/complementos/header');
 		$this->load->view('enc');
+		$this->load->view('../views/complementos/footer');
+	}
+public function encuesta(){
+		$this->load->view('../views/complementos/header');
+		$this->load->view('encuesta');
 		$this->load->view('../views/complementos/footer');
 }
 
