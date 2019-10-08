@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Encuesta extends Cl_Controller{
+class cllEncuesta extends Cl_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
