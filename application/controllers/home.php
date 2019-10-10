@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -23,29 +24,38 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->model('mlPreguntas');
 	}
 	public function index()
 	{
 		$this->load->view('../views/complementos/header');
 		$this->load->view('home'); {
-		$this->load->view('../views/complementos/footer');
+			$this->load->view('../views/complementos/footer');
 		}
 	}
-	public function fel(){
+	public function fel()
+	{
 		$this->load->view('../views/complementos/header');
 		$this->load->view('felicitaciones');
 		$this->load->view('../views/complementos/footer');
-}
+	}
 	public function QuejasSugerencias()
 	{
 		$this->load->view('../views/complementos/header');
 		$this->load->view('enc');
 		$this->load->view('../views/complementos/footer');
 	}
-public function encuesta(){
+	public function cargarPreguntas()
+	{
+		$this->load->view('../views/complementos/header');
+		$datosPreguntas['allPreguntas'] = $this->mlPreguntas->getPreguntas();
+		$this->load->view('encuesta', $datosPreguntas);
+		$this->load->view('../views/complementos/footer');
+	}
+	public function encuesta()
+	{
 		$this->load->view('../views/complementos/header');
 		$this->load->view('encuesta');
 		$this->load->view('../views/complementos/footer');
-}
-
+	}
 }

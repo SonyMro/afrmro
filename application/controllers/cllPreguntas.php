@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class cllPreguntas extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,12 +23,17 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('preguntas');
+		$this->load->model('mlPreguntas');
 	}
-	public function cargarPreguntas()
+	public function cargarPreguntas(){
+	$this->load->view('../views/complementos/header');
+	$datosPreguntas['allPreguntas'] = $this->mlPreguntas->getPreguntas();
+	$this->load->view('encuesta',$datosPreguntas);
+	$this->load->view('../views/complementos/footer');
+	}
+	public function hola()
 	{
-		$datosPreguntas['allPreguntas']=$this->preguntas->getPreguntas();
-		
+		echo 'hola';
 	}
 	
 }

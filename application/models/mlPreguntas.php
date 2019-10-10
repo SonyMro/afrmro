@@ -1,10 +1,13 @@
 <?php
 class mlPreguntas extends CI_Model
 {
+	
+	
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->database();
+		$dba=$this->load->database();
+		$dba2=$this->load->database('dbmicrosip',true);
 	}
 	public function getPreguntas(){
 		$query = $this->db->get('preguntas');
@@ -13,6 +16,11 @@ class mlPreguntas extends CI_Model
 		} else {
 			return false;
 		}
+	}
+
+	public function getDatosMicriosip()
+	{
+		
 	}
 }
 ?>
