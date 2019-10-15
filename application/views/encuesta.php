@@ -4,7 +4,15 @@
 		font-size: 12px;
 	}
 </style>
+<?php
+foreach($datos2->result() as $dato){
+echo $dato->nombre;
+}
+foreach($datos->result() as $dato){
+	echo $dato->Pregunta;
+}
 
+?>
 <div class="container-fluid font">
 	<h1 class="text-light  text-center aumenta">
 		<font color='#FFF79F'> Evaluación de servicio.</font>

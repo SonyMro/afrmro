@@ -81,7 +81,7 @@ $db['default'] = array(
 	'database' => 'evaluaciondeservicio',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
-	'pconnect' => FALSE,
+	'pconnect' =>false,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
@@ -95,7 +95,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 /*Base de datos de microsip*/ 
-$db['dbmicrosip'] = array(
+$db['dbm'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
@@ -103,7 +103,7 @@ $db['dbmicrosip'] = array(
 	'database' => 'db2',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
-	'pconnect' => FALSE,
+	'pconnect' => false,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',

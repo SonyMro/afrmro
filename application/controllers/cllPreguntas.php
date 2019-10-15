@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cllPreguntas extends CI_Controller {
+	
 
 	/**
 	 * Index Page for this controller.
@@ -19,16 +20,19 @@ class cllPreguntas extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	function __construct()
+	
+	 function __construct()
 	{
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('mlPreguntas');
+		$this->load->model('mldb2');
+		$this->load->model('mlPreguntas');		
 	}
 	public function cargarPreguntas(){
 	$this->load->view('../views/complementos/header');
-	$datosPreguntas['allPreguntas'] = $this->mlPreguntas->getPreguntas();
-	$this->load->view('encuesta',$datosPreguntas);
+	$datos['datos'] = $this->mlPreguntas->getPreguntas();
+	$datos['datos2'] = $this->mlPreguntas->getDatosMicriosip();
+	$this->load->view('encuesta', $datos);
 	$this->load->view('../views/complementos/footer');
 	}
 	public function hola()
