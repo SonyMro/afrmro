@@ -11,7 +11,7 @@
 			<font color='#e67e22' class="brillo"> ¿Qué tal tu visita explorador?</font>
 		</h1><br>
 		<h3>
-			<font color='#f4d03f' class="aumenta">!Ayúdanos a ser mejores¡</font>
+			<font color='#f4d03f' class="aumenta">¡Ayúdanos a ser mejores!</font>
 		</h3>
 
 	</center> <br> <br> <br>
@@ -28,7 +28,7 @@
 			</a>
 		</div>
 		<div class="col p-3 salto" id="salto2">
-			<a href="<?php echo base_url('/index.php/home/encuesta'); ?>"  class="btn btn-success" style=" color:#852a1f; bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+			<a href="<?php echo base_url('/index.php/home/encuesta'); ?>" class="btn btn-success" style=" color:#852a1f; bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 					<h5> Si tienes una reservación</h5>
 					<h2>
 						<font color='#f4d03f'>¡ingresa aquí!</font>
@@ -38,7 +38,7 @@
 			</a>
 		</div>
 		<div class="col p-3 salto" id="salto1">
-			<a class="btn btn-success" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 					<h5>¿Quieres dejarnos una <br></h5>
 					<h3>
 						<font color='#f4d03f'>queja o sugerencia?</font>

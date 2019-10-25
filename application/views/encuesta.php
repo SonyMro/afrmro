@@ -4,15 +4,7 @@
 		font-size: 12px;
 	}
 </style>
-<?php
-foreach($datos2->result() as $dato){
-echo $dato->nombre;
-}
-foreach($datos->result() as $dato){
-	echo $dato->Pregunta;
-}
 
-?>
 <div class="container-fluid font">
 	<h1 class="text-light  text-center aumenta">
 		<font color='#FFF79F'> Evaluación de servicio.</font>
@@ -88,10 +80,8 @@ foreach($datos->result() as $dato){
 					<div class="card-body">
 						<h5 class="card-title ">¿Tienes reservación?
 						</h5>
-
 						<button type="button" class="btn btn-success btn-lg " id="btnc1rs1">Si</button>
 						<button type="button" class="btn btn-warning  btn-lg" id="btnc1rn1">No</button>
-
 					</div>
 				</div>
 				<div id="comp2s">
@@ -99,7 +89,7 @@ foreach($datos->result() as $dato){
 						<div id="compBuscar">
 							<h5 class="card-title ">Ingrese el número de reservación</h5>
 							<div class="form-group  pr-4 ">
-								<input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+								<input type="password" id='txtNumReservacion' class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
 							</div>
 
 							<button type="button" class="btn btn-success" style="height:40px; width:180px;" id="btnBuscarReserv">Buscar</button>
@@ -107,35 +97,35 @@ foreach($datos->result() as $dato){
 						<div id="subcomp1s">
 							<fieldset>
 								<div class="form-group">
-									<label for="inputPassword6">
-										1. Durante la reservación, ¿te ofrecieron algún servicio educativo?
-									</label><br />
+									<h3 for="inputPassword6"> 
+											1. Durante la reservación, ¿te ofrecieron algún servicio educativo?
+									</h3><br />
 									<label class="radio-inline"><input type="radio" name="optradio1" id='rdop1s' value="si">Si</label>
 									<label class="radio-inline"><input type="radio" name="optradio1" id='rdop1n' value="no">No</label>
 								</div>
 							</fieldset>
 							<fieldset>
 								<div class="form-group">
-									<label for="inputPassword6">
+									<h3 for="inputPassword6">
 										2. Durante la reservación, ¿te ofrecieron el servicio de alimentos?
-									</label><br />
-									<label class="radio-inline"><input type="radio" name="optradio2" id='rdop2s' value="si">Si</label>
-									<label class="radio-inline"><input type="radio" name="optradio2" id='rdop2n' value="no">No</label>
+									</h3><br />
+									<h3 class="radio-inline"><input type="radio" name="optradio2" id='rdop2s' value="si">Si</h3>
+									<h3 class="radio-inline"><input type="radio" name="optradio2" id='rdop2n' value="no">No</h3>
 								</div>
 							</fieldset>
 							<div id="subsubcomp1s">
 								<div class="form-group">
-									<label for="inputPassword6">
+									<h3 for="inputPassword6">
 										3. ¿Cuál fue el motivo?
-									</label><br />
+									</h3><br />
 									<input type="text" class="form-control" id="" placeholder="">
 								</div>
 							</div>
 							<fieldset>
 								<div class="form-group">
-									<label for="">
+									<h3 for="">
 										4. ¿Cómo fue tu experiencia con la resevación?
-									</label><br />
+									</h3><br />
 									<div class="btn-group btn-group-toggle" data-toggle="buttons">
 										<label class="btn btn-secondary active">
 											<input type="radio" id="option1" autocomplete="off" checked>

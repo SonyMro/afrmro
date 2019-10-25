@@ -1,465 +1,165 @@
-<div class="container-fluid ">
+<style>
+	.font {
+		font-family: 'Luckiest Guy', cursive;
+		font-size: 12px;
+	}
+
+	.inputFont {
+		font-family: "Times New Roman", Times, serif;
+		font-size: 18px;
+	}
+</style>
+
+<div class="container-fluid font">
 	<br>
-	<center>
-		<h2 class="text-ligth">Quejas y sugerencias</h2>
-	</center>
+	<p class="h1 text-center text-light display-4">
+		<font color="#FFE98F" class="brillo"><b>QUEJAS Y SUGERENCIAS</b></font>
+	</p><br>
 	<br>
 	<div class="row">
-		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 pl-3">
-			<div class="card text-white bg-dark" style="width: 18rem;">
-				<div class="card-header">
+		<div class="col">
+			<div class="card text-center">
+				<div class="card-header bg-dark text-white">
+					<h3> POR FAVOR INGRESE LOS SIGUIENTES DATOS:</h3>
+				</div>
+				<div class="card-body">
+					<h4 class="card-title "></h4>
+					<form action="<?php echo site_url('/cllBuzon/insertarBuzon') ?>" method="POST">
+						<div class="form-group form-inline float-right">
+							<h5>Fecha:</h5>
+							<input type="text" id="txtFecha" name="txtFecha" type="text" readonly class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+						</div><br><br><br><br>
+						<div class="form-row">
+							<div class="col-md-6 mb-6">
+								<h3>
+									<font color="#1D6B84">NOMBRE:</font>
+								</h3>
+								<input type="text" class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" onblur="ValidarNombre(this)" name="txtNombre" id="txtNombre" placeholder="Juanito" required>
+								<div class="" id="valNombre">
+								</div>
+							</div>
+							<div class="col-md-6 mb-6">
+								<h3 for="validationCustom02">
+									<font color="#1D6B84">APELLIDOS:</font>
+								</h3>
+								<input type="text" class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" onblur="ValidarApellido(this)" name="txtApes" id="txtApes" placeholder="Peréz lopez" required>
+								<div class="" id="valApes">
+
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-6 mb-6">
+								<h3 for="validationCustom01">
+									<font color="#1D6B84">EDAD:</font>
+								</h3>
+								<input type="number" class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" name="txtEdad" id="txtEdad" onblur="validarEdad(this)" placeholder="26" required>
+								<div class="" id="valEdad">
+
+								</div>
+							</div>
+							<div class="col-md-6 mb-6">
+								<h3 for="validationCustom02">
+									<font color="#1D6B84">TELÉFONO:</font>
+								</h3>
+								<input type="number" class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" name="txtTel" id="txtTel" placeholder="+52 5511678222" onblur="validarTelefono(this)" required>
+								<div class="" id="valTel">
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-6 mb-6">
+								<h3 for="validationCustom01">
+									<font color="#1D6B84">CORREO:</font>
+								</h3>
+								<input type="mail" class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" name="txtMail" id="txtMail" placeholder="juanito.afri@gmail.com" onblur="validarCorreo(this)" required>
+								<div class="" id="valMail">
+
+								</div>
+							</div>
+							<div class="col-md-6 mb-6">
+								<h3 for="validationCustom02">
+									<font color="#1D6B84">CÓDIGO POSTAL:</font>
+								</h3>
+								<input type="number" class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" name="txtCp" id="txtCp" placeholder="73940" onblur="validarCodigoPostal(this)" required>
+								<div class="" id="valCp">
+
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<h3 for="validationCustom02">
+								<font color="#1D6B84">DIRECCIÓN:</font>
+							</h3>
+							<input type="text" class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" onblur="validarDir(this)" name="txtDir" id="txtDir" placeholder="calle benito juarez numero 15" required>
+							<div class="" id="valDir">
+
+							</div>
+
+						</div>
+						<br>
+						<fieldset>
+							<div class="pr-1">
+								<h2 for="inputPassword6" class="pr-5">
+									<font color="#1D6B84">REALIZO SU SAFARI EN:</font>
+								</h2>
+								<div class="row">
+									<div class="col">
+										<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2s' value="Automovil" required>AUTOMÓVIL <br>
+											<img src="<?php echo base_url() ?>image/auto.png" width="100" height="100" alt="https://www.flaticon.es/icono-gratis/carreras_263396">
+										</h5>
+									</div>
+									<div class="col">
+										<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2n' value="bus africamion" required>AUTOBÚS AFRICAMIÓN (RENTADO A AFRICAM)
+										</h5>
+									</div>
+									<div class="col">
+										<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2n' value="Bus externo" required>AUTOBÚS EXTERNO (NO RENTADO A AFRICAM)
+										</h5>
+									</div>
+								</div>
+							</div>
+						</fieldset><br>
+						<fieldset>
+							<div class="">
+								<h3 class="pr-5">
+									<font color="#1D6B84">NOS RECOMENDARÍA: </font>
+								</h3>
+								<div class="row">
+									<div class="col">
+										<h5 class="radio-inline"><input type="radio" name="optradio2" id='rdop2s' value="Ampliamente" required>AMPLIAMENTE
+
+										</h5>
+									</div>
+									<div class="col">
+										<h5 class="radio-inline"><input type="radio" name="optradio2" id='rdop2n' value="Regular" required>REGULAR</h5>
+									</div>
+									<div class="col">
+										<h5 class="radio-inline"><input type="radio" name="optradio2" id='rdop2n' value="Nada" required>NADA</h5>
+									</div>
+								</div>
+							</div>
+						</fieldset> <br>
+						<div class="card">
+							<div class="card-body">
+								<h3 class="card-title">
+									<font color="#1D6B84">ESCRIBA SUS QUEJAS Y SUGERENCIAS</font>
+								</h3>
+								<div class="mb-3">
+									<textarea class="form-control brillo2 inputFont" onclick="eliminarEfecto(this)" name="txtQs" id="txtQs" rows="5" onblur="validarComentarios(this)" placeholder="*La guía no contesto no fue amable." required></textarea>
+									<div class="" id="valQs">
+									</div>
+								</div>
+							</div>
+						</div> <br>
+						<button type="submit" class="btn btn-success btn-lg btn-block">ENVIAR</button>
+					</form>
+				</div>
+				<div class="card-footer text-muted bg-dark">
 					<br>
 				</div>
-				<img src="<?php echo base_url() ?>image/africam.png" width="150px" height="150px" class="card-img-top">
-				<div class="card-body">
-					<h5 class="card-title">Opciones</h5>
-					<div class="list-group">
-						<a type="button" class="btn  btn-secondary" href="<?php echo base_url(); ?>">
-							<h5><strong>
-									<--Regresar</strong> </h5> </a> </div> </div> <div class="card-footer text-muted">
-										<br>
-					</div>
-				</div>
 			</div>
-			<div class="col-xs-12 col-sm-7 col-md-7 col-lg-9 pr-5" style="padding:0;">
-				<div id="rs1">
-					<div class="card text-center">
-						<div class="card-header bg-dark text-white">
-							Reservación
-						</div>
-						<div class="card-body">
-							<h5 class="card-title ">¿Tienes reservación?
-							</h5>
-							<form action="">
-								<button type="button" class="btn btn-success btn-lg " id="btnSi">Si</button>
-								<button type="button" class="btn btn-warning  btn-lg" id="btnNo">No</button>
-							</form>
-						</div>
-						<div class="card-footer text-muted bg-dark">
-							<br>
-						</div>
-					</div>
-				</div>
-				<div id="rsi">
-					<div class="card text-center">
-						<div class="card-header bg-dark text-white">
-							Reservación
-						</div>
-						<div class="card-body">
-							<h5 class="card-title ">Ingrese el número de reservación
-							</h5>
-							<div class="row">
-								<div class=" col-md-10 ml-md-auto">
-									<form action="" class="form-inline">
-										<div class="form-group">
-											<input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
-										</div><br>
-										<button type="button" class="btn btn-success" id="btnBuscar">Buscar</button>
-									</form>
-								</div>
-								<div id="encs1">
-									<div class="pt-2">
-										<div class="card" style="width: 18rem;">
-											<div class="card-body">
-												<h5 class="card-title">Información</h5>
-												<h5>Fecha: 24/07/2019</h5>
-												<h5>Institución/Grupo: </h5>
-												<h5>Responsable: Juanito </h5>
-												<h5>Mail: mro.15gp@outlook.com</h5>
-												<h5>No. Adultos: 15</h5>
-												<h5>No. niños: 16</h5>
-												<h5>SERVICIOS: </h5>
-											</div>
-										</div>
-									</div>
-									<div id="encs2">
-										<div class="pl-2 pt-2 pb-3">
-											<div class="card" style="width: 40rem;">
-												<div class="card-body">
-													<h5>1. Durante la reservación, ¿te ofrecieron algún servicio educativo?
-													</h5><br>
-													<label class="radio-inline"><input type="radio" name="optradio" checked>Si</label>
-													<label class="radio-inline pl-5"><input type="radio" name="optradio">No</label>
-													<br>
-													<h5>
-														2. Durante la reservación, ¿te ofrecieron el servicio de alimentos?
-													</h5> <br>
-													<label class="radio-inline"><input type="radio" name="optradio" checked>Si</label>
-													<label class="radio-inline pl-5"><input type="radio" name="optradio">No</label>
-													<br>
-													<h5>3. En caso de que No hayas contratado el servicio de ALIMENTOS, ¿Cuál fue el motivo?</h5> <br>
-													<div class="form-row">
-														<div class="col">
-															<input type="text" class="form-control">
-														</div>
-													</div>
-													<br>
-													<h5>4. ¿Cómo fue tu experiencia con la resevación?</h5>
-													<button class="btn btn-outline-dark">
-														<h1>&#128532;</h1>
-													</button>
-													<button class="btn btn-outline-dark">
-														<h1>&#128528;</h1>
-													</button>
-													<button class="btn btn-outline-dark">
-														<h1>&#128525;</h1>
-													</button> <br>
-													<button href="#" class="btn btn-primary" id="btnenv1">Enviar</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="encs3">
-										<div class="pl-2 pt-2 pb-3">
-											<div class="card" style="width: 40rem;">
-												<div class="card-body">
-													<h6>Tu recorrido safari tuvo:
-													</h6> <br>
-													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value="" id="checkGuia">
-														<label class="form-check-label" for="defaultCheck1">
-															Guia
-														</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value="" id="checkGuiaOperador">
-														<label class="form-check-label" for="defaultCheck1">
-															Operador guia.
-														</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value="" id="checkGuiaNo">
-														<label class="form-check-label" id="checkNoGuia" for="defaultCheck1">
-															No tuve este
-														</label>
-													</div>
-													<button href="#" class="btn btn-primary" id="btnenv2">Enviar</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="encs4">
-										<div class="pl-2 pt-2 pb-3">
-											<div class="card" style="width: 40rem;">
-												<div class="card-body">
-													<h6>Tu recorrido safari tuvo:
-													</h6> <br>
-													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value="" id="checkGuia">
-														<label class="form-check-label" for="defaultCheck1">
-															Guia
-														</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value="" id="checkGuiaOperador">
-														<label class="form-check-label" for="defaultCheck1">
-															Operador guia.
-														</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value="" id="checkGuiaNo">
-														<label class="form-check-label" id="checkNoGuia" for="defaultCheck1">
-															No tuve este
-														</label>
-													</div>
-													<button href="#" class="btn btn-primary" id="btnenv2">Enviar</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="encs5">
-										<div class="pl-2 pt-2 pb-3">
-											<div class="card" style="width: 40rem;">
-												<div class="card-body">
-													<h6>Tu recorrido safari tuvo:
-													</h6> <br>
-													<form>
-														<div class="form-row">
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">Nombre del guia</label>
-																<input type="text" class="form-control" id="" placeholder="">
-															</div>
-														</div>
-														<div class="form-row">
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">¿Qué tan satisfactoria fue la atención del guía?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-														</div>
-														<div class="form-row">
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">Todas las preuntas que tú y tu grupo realizaron, <br> ¿fueron contestadas correctamente?
-																</label>
-																<label class="radio-inline"><input type="radio" name="optradio">Si</label>
-																<label class="radio-inline"><input type="radio" name="optradio">No</label>
-															</div>
-														</div>
-														<fieldset>
-															<legend>Autobús contratado</legend>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	1. ¿Qué tan satisfactoria fue la atención y la actitud del chofer?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	2. ¿Qué tan adecuada fue la forma de conducir del chofer?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	3. ¿Qué tan correctamente el chofer portaba el uniforme?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-														</fieldset>
-
-														<fieldset>
-															<legend>Servicio educativo.
-															</legend>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	1. ¿Qué tan satisfactorio fue el desempeño del instructor-a del servicio educativo?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	2. ¿Qué tan adecuadas son las instalaciones donde se impartió el servicio educativo?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	3. ¿El servicio educativo te pareció un apoyo didáctico para los contenidos que está ejecutando o ejecutará en la currícula?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	4. ¿El contenido del servicio educativo fue adecuado para el nivel y edad de los participantes?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	5. ¿Recomendarías el servicio educativo?
-																</label>
-																<label class="radio-inline"><input type="radio" name="optradio">Si</label>
-																<label class="radio-inline"><input type="radio" name="optradio">No</label>
-																<br>
-															</div>
-															<div class="form-row">
-																<div class="form-group col-md-6">
-																	<label for="inputEmail4">En el siguiente espacio escribe el (los) tema (s) que te gustaría se abordaran en los servicios educativos de Africam Safari:
-																	</label>
-																	<input type="email" class="form-control" id="inputEmail4" placeholder="">
-																</div>
-															</div>
-														</fieldset>
-														<fieldset>
-															<legend>Alimentos contratados.
-															</legend>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	<label class="radio-inline"><input type="radio" name="optradio">Si</label>
-																	<label class="radio-inline"><input type="radio" name="optradio">No</label>
-
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	<label class="radio-inline"><input type="radio" name="optradio">Si</label>
-																	<label class="radio-inline"><input type="radio" name="optradio">No</label>
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	3. ¿La calidad/sabor de los alimentos fue bueno?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	4. ¿El personal que te ofreció el servicio de alimentos fue amable?
-																</label>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128532;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128528;</h1>
-																</button>
-																<button class="btn btn-outline-dark">
-																	<h1>&#128525;</h1>
-																</button> <br>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="inputEmail4">
-																	5. ¿Recomendarías el servicio de alimentos contratados?
-																</label>
-																<label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
-																<label class="radio-inline"><input type="radio" name="optradio">Option 3</label>
-																<br>
-															</div>
-														</fieldset>
-														<br>
-														<button href="#" class="btn btn-primary" id="btnenv4">Enviar</button>
-													</form>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card-footer text-muted bg-dark">
-								<br>
-							</div>
-						</div>
-					</div>
-
-					<div id="rno">
-						<div class="card text-center">
-							<div class="card-header bg-dark text-white">
-								Reservación
-							</div>
-							<div class="card-body">
-								<h5 class="card-title ">¿Nooooooooooooo? No cjajajaj
-								</h5>
-								<form action="">
-									<button type="button" class="btn btn-success btn-lg ">Si</button>
-									<button type="button" class="btn btn-warning  btn-lg">No</button>
-								</form>
-							</div>
-							<div class="card-footer text-muted bg-dark">
-								<br>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#rno").hide();
-		$("#rsi").hide();
-		$("#encs1").hide();
-		$("#encs3").hide();
-		$("#encs4").hide();
-		$("#encs5").hide();
-	});
-	$('#btnSi').click(function() {
-		//alert('Si');
-		$("#rs1").hide();
-		$("#rsi").show(2000);
-	});
-	$("#btnBuscar").click(function() {
-		$("#encs1").show();
-	});
-	$("#btnenv1").click(function() {
-		$("#encs2").hide();
-		$("#encs3").show();
-
-	});
-	$('#btnenv2').click(function() {
-		if ($('#checkGuia').is(':checked')) {
-			$("#encs3").hide();
-			$("#encs5").show();
-		}
-	});
-</script>
+<script type="text/javascript" src="<?php echo base_url(); ?>scripsJS/buzon.js"></script>

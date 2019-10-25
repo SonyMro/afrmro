@@ -39,12 +39,7 @@ class Home extends CI_Controller
 		$this->load->view('felicitaciones');
 		$this->load->view('../views/complementos/footer');
 	}
-	public function QuejasSugerencias()
-	{
-		$this->load->view('../views/complementos/header');
-		$this->load->view('enc');
-		$this->load->view('../views/complementos/footer');
-	}
+	
 	public function cargarPreguntas()
 	{
 		$this->load->view('../views/complementos/header');
@@ -56,6 +51,13 @@ class Home extends CI_Controller
 	{
 		$this->load->view('../views/complementos/header');
 		$this->load->view('encuesta');
+		$this->load->view('../views/complementos/footer');
+	}
+
+	public function menu()
+	{
+		$this->load->view('../views/complementos/header');
+		$this->load->view('menu');
 		$this->load->view('../views/complementos/footer');
 	}
 }

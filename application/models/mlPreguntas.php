@@ -9,8 +9,7 @@ class mlPreguntas extends CI_Model
 		$this->db2 = $this->load->database('dbm', true);
 		} catch (Exception $e) {
 			log_message('error', $e->getMessage());
-		}
-			
+		}	
 	}
 	public function getPreguntas(){
 		//$query = $this->db->get('preguntas');
@@ -22,15 +21,16 @@ class mlPreguntas extends CI_Model
 		}
 	}
 	public function getDatosMicriosip()
-	{
-				
-		$query = $this->db2->get('tbl');
+	{	$query = $this->db2->get('tbl');
 		if ($query->num_rows() > 0) {
 			return $query;
 		} else {
 			return false;
-		}
-		
+		}		
+	}
+	public function NumeroReservacion($Numero)
+	{
+		$num=$Numero;
 	}
 }
 ?>

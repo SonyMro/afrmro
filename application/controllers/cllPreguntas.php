@@ -35,9 +35,13 @@ class cllPreguntas extends CI_Controller {
 	$this->load->view('encuesta', $datos);
 	$this->load->view('../views/complementos/footer');
 	}
-	public function hola()
+	public function BuscarNumeroReservacion()
 	{
-		echo 'hola';
+		$Numero=$this->input->post();
+		$info=array(
+			'id' => $Numero['numero']
+		);
+		
 	}
 	
 }

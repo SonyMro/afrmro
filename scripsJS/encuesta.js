@@ -1,6 +1,6 @@
 
 	$(document).ready(function() {
-		$('#ReSerEduSi').hide();
+	$('#ReSerEduSi').hide();
 	$('#comp2s').hide();
 	$('#comp3n').hide();
 	$('#subcomp1s').hide();
@@ -31,7 +31,9 @@
 		$('#subsubcomp1s').fadeOut('slow');
 });
 	$('#btnBuscarReserv').click(function(event) {
-		$('#subcomp1s').fadeIn('slow');
+		console.log('metodo');
+	buscarReservacion();
+	$('#subcomp1s').fadeIn('slow');
 	$('#compBuscar').hide(1000);
 	$('#cardInfo').show('slow');
 });
@@ -147,6 +149,27 @@ cont++;
 	console.log(idTema);
 	var eli = 'eliminarTema' + idTema;
 	$('.eliminarTema' + idTema).remove();
+
+}
+
+//Peticiones Ajax
+
+function buscarReservacion(){
+	var numReservacion = $('#txtNumReservacion').val();
+	console.log('js: '+numReservacion);
+	$.ajax({
+		type:'POST',
+		url: '<?php echo base_url("cllPreguntas/BuscarNumeroReservacion"); ?>',
+		data:{
+			'numero': numReservacion
+		},
+		success: function(data){
+			alert('Los datos fueron agregados');
+		}, error: function(error) {
+			console.log('Error: '+ error);
+		}
+});
+	
 
 }
 	/*setInterval(function () {
