@@ -25,6 +25,7 @@
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/popper.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/sweetalert.min.js'); ?>"></script>
 	<nav class=" rounded navbar navbar-light bg-dark">
 		<a class="navbar-brand" href="#">
 			<img src="<?php echo base_url() ?>image/africam1.png" alt="africam" width="100" height="45" />
