@@ -75,5 +75,4 @@ class mlPremios extends CI_Model
 			log_message('error', $e->getMessage());
 		}
 	}
-
 }

@@ -10,9 +10,165 @@
 		<font color='#FFF79F'> Evaluación de servicio.</font>
 	</h1>
 	<br>
-	<div class="row">
+	<div class='row'>
+		<div class="col-sm-12 pb-4" id="sec-1">
+			<div class="card text-center">
+				<div class="card-header bg-dark">
+					<br>
+				</div>
+				<div class="card-body ">
+					<h5 class="card-title">
+						BUSCAR NÚMERO DE RESERVACIÓN.
+					</h5>
+					<div class="form-group">
+						<input type="text" class="form-control" id="exampleInputEmail1">
+					</div>
+					<button class="btn btn-success pl-5 pr-5" onclick="BuscarReserva()">
+						BUSCAR
+					</button>
+				</div>
+				<div class="card-footer bg-dark">
+					<br>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12" id="sec-2">
+			<div class="card text-center">
+				<div class="card-header bg-dark text-white">
+					<h2> INFORMACIÓN DE RESERVACIÓN.</h2>
+				</div>
+				<div class="card-body row pl-0">
+					<div class="form-inline float-sm-right pl-5">
+						<h4>FECHA:</h4> <br>
+						<h5 class="pl-2">31/10/2019</h5>
+					</div>
+					<div class="col-12 pb-5">
+						<h2>¿ES TU INFORMACIÓN?</h2>
+					</div>
+					<br />
+					<div class="col-6 p-1">
+						<h4>NOMBRE DEL RESPONSABLE.</h4>
+						<h5 id="">Text</h5>
+					</div>
+					<div class="col-6 p-1">
+						<h4>INSTITUCIÓN/GRUPO.</h4>
+						<h5 id="">Text</h5>
+					</div>
+					<br />
+
+					<br />
+					<div class="col-6 p-1">
+						<h4>CORREO.</h4>
+						<h5 id="">Text</h5>
+					</div>
+					<br />
+					<div class="col-6 p-1">
+						<h4>NUMERO ADULTOS.</h4>
+						<h5 id="">Text</h5>
+					</div>
+					<br />
+					<div class="col-6 p-1">
+						<h4>NUMERO NIÑOS</h4>
+						<h5 id="">Text</h5>
+					</div>
+					<br />
+					<div class="col-6 p-1">
+						<h4>SERVICIOS.</h4>
+						<h5 id="">Text</h5>
+					</div>
+					<div class="col-12 form-inline float-sm-right pt-2 pb-2">
+						<h4 class="pl-3 pr-2">¿ES LA PRIMERA VEZ QUE HA VISITADO AFRICAM SAFARI? </h4> <br>
+						<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2n' value="bus africamion" required>SI
+						</h5>
+						<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2n' value="bus africamion" required>NO
+						</h5>
+					</div>
+					<div class="col-6 pr-5">
+						<button class="btn btn-success btn-lg btn-block" onclick="siReser()">
+							SI ES MI INFORMACIÓN.
+						</button>
+					</div>
+					<div class="col-6">
+						<button class="btn btn-danger btn-lg btn-block" onclick="noReser()">
+							NO ES MI INFORMACIÓN.
+						</button>
+					</div>
+				</div>
+				<div class="card-footer text-muted bg-dark text-white">
+					<br>
+				</div>
+			</div>
+		</div>
+		<?php
+		if ($preguntas != null) {
+			foreach ($preguntas -> result() as $pregunta) {
+				echo $pregunta->NombreSecion;
+				?>
+		
+
+		<?php
+
+			}
+		} else { }
+
+		?>
+		<div class="col-sm-12">
+			<div class="card text-center">
+				<div class="card-header bg-dark text-white">
+					<h3>Safari con guia</h3>
+				</div>
+				<div class="card-body">
+					<div class="form-group row">
+						<h5 class="col-sm-4">Nombre del guia:</h5>
+						<div class="col-sm-8">
+							<input type="text" class="form-control pl-5" id="inputPassword" placeholder="Juanito Pérez">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<h5 for="">
+							2. ¿Qué tan adecuadas son las instalaciones donde se impartió el servicio educativo?
+						</h5><br />
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-secondary active">
+								<input type="radio" name="op" id="option1" autocomplete="off" checked>
+								<h1>&#128525;</h1>
+							</label>
+							<label class="btn btn-secondary active">
+								<input type="radio" name="op" id="option2" autocomplete="off" checked>
+								<h1>&#128512;</h1>
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="op" id="option3" autocomplete="off">
+								<h1>&#128528;</h1>
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="op" id="option4" autocomplete="off">
+								<h1>&#128542;</h1>
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="op" id="option4" autocomplete="off">
+								<h1>&#128534;</h1>
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<h3 for="inputPassword6">
+							1. Durante la reservación, ¿te ofrecieron algún servicio educativo?
+						</h3><br />
+						<label class="radio-inline"><input type="radio" name="optradio1" id='rdop1s' value="si">Si</label>
+						<label class="radio-inline"><input type="radio" name="optradio1" id='rdop1n' value="no">No</label>
+					</div>
+				</div>
+				<div class="card-footer text-muted bg-dark">
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="row">
 		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 pl-3">
-			<!--Nav-->
+			
 			<div class="card text-white bg-dark" style="width: 18rem;">
 				<div class="card-header">
 					<br>
@@ -602,5 +758,5 @@
 		</div>
 	</div>
 </div>
-</div>
-<script type="text/javascript" src="<?php echo base_url(); ?>scripsJS/encuesta.js"></script>
+</div>Nav-->
+	<script type="text/javascript" src="<?php echo base_url(); ?>scripsJS/encuesta.js"></script>

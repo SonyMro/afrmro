@@ -28,6 +28,20 @@ class mlPreguntas extends CI_Model
 			return false;
 		}		
 	}
+	public function ObternerPreguntas()	{
+	$query = $this->db1->query('SELECT p.IdPregunta, p.Pregunta, p.tipo, p.IdSecion, p.IdGerencia, s.NombreSecion, g.Nombre FROM preguntas as p
+inner join seccion as s
+on p.IdSecion= s.IdSecion
+inner join gerencias as g
+on p.Idgerencia= g.IdGerencia
+ORDER BY p.IdSecion;');
+		if ($query != null) {
+			return $query;
+		} else {
+		
+			return false;
+		}
+	}
 	public function NumeroReservacion($Numero)
 	{
 		$num=$Numero;

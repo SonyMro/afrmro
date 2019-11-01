@@ -15,6 +15,10 @@
 	<link rel="stylesheet" href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<!-- include the style -->
+	<!-- include a theme -->
+	<link rel="stylesheet" href="<?php echo base_url('AlertifyJS/alertify.min.css') ?>" />
+	<link rel="stylesheet" href="<?php echo base_url('AlertifyJS/themes/default.min.css') ?>" />
 </head>
 
 <body>
@@ -26,6 +30,7 @@
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/sweetalert.min.js'); ?>"></script>
+	<script src="<?php echo base_url('AlertifyJS/alertify.min.js'); ?>"></script>
 	<nav class=" rounded navbar navbar-light bg-dark">
 		<a class="navbar-brand" href="#">
 			<img src="<?php echo base_url() ?>image/africam1.png" alt="africam" width="100" height="45" />

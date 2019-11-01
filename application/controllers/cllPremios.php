@@ -47,8 +47,29 @@ class cllPremios extends CI_Controller {
 			'Descripcion'  => $this->input->post('des'),
 			'Stock'  => $this->input->post('Stock'),
 		);
-	//	$verificar = $this->mlPremios->insert($data);
-	//	echo $verificar;
+ $this->mlPremios->insert($data);
+
+	}
+	public function eliminar($idp){
+		$parametros = array("IdPremio" => $idp);		
+	$verificar=	$this->mlPremios->detele($parametros);
+	if ($verificar) {
+			redirect(base_url('index.php/cllPremios'));
+	} else {
+			redirect(base_url('index.php/cllPremios'));
+	}
+	
+	}
+	public function modificar()
+	{
+		$idusu = $this->input->post('Id');
+			$data = array(
+				'Nombre'  => $this->input->post('Nombre'),
+				'foto'  => $this->input->post('img'),
+				'Descripcion'  => $this->input->post('des'),
+				'Stock'  => $this->input->post('Stock'),
+			);
+		$this->mlPremios->modificar($data, $idusu);
 	}
 
 }

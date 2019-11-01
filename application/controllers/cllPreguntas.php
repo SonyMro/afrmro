@@ -30,8 +30,8 @@ class cllPreguntas extends CI_Controller {
 	}
 	public function cargarPreguntas(){
 	$this->load->view('../views/complementos/header');
-	$datos['datos'] = $this->mlPreguntas->getPreguntas();
-	$datos['datos2'] = $this->mlPreguntas->getDatosMicriosip();
+	$datos['preguntas'] = $this->mlPreguntas->getPreguntas();
+	//$datos['datos2'] = $this->mlPreguntas->getDatosMicriosip();
 	$this->load->view('encuesta', $datos);
 	$this->load->view('../views/complementos/footer');
 	}
@@ -42,6 +42,14 @@ class cllPreguntas extends CI_Controller {
 			'id' => $Numero['numero']
 		);
 		
+	}
+	public function obtenerPreguntas()
+	{
+		$this->load->view('../views/complementos/header');
+		//$datos['datos2'] = $this->mlPreguntas->getDatosMicriosip();
+		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas();
+		$this->load->view('encuesta', $datos);
+		$this->load->view('../views/complementos/footer');	
 	}
 	
 }
