@@ -104,10 +104,7 @@
 			foreach ($preguntas -> result() as $pregunta) {
 				echo $pregunta->NombreSecion;
 				?>
-		
-
 		<?php
-
 			}
 		} else { }
 

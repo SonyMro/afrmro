@@ -44,8 +44,7 @@ class cllPremios extends CI_Controller {
 		$data = array(
 			'Nombre'  => $this->input->post('Nombre'),
 			'foto'  => $this->input->post('img'),
-			'Descripcion'  => $this->input->post('des'),
-			'Stock'  => $this->input->post('Stock'),
+			'Descripcion'  => $this->input->post('des')
 		);
  $this->mlPremios->insert($data);
 
@@ -54,9 +53,9 @@ class cllPremios extends CI_Controller {
 		$parametros = array("IdPremio" => $idp);		
 	$verificar=	$this->mlPremios->detele($parametros);
 	if ($verificar) {
-			redirect(base_url('index.php/cllPremios'));
+			echo 'Si';
 	} else {
-			redirect(base_url('index.php/cllPremios'));
+			echo 'No';
 	}
 	
 	}

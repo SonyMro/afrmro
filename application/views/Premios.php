@@ -5,6 +5,9 @@
 	}
 </style>
 <div class="conteiner-fluid font"> <br>
+	<div>
+
+	</div>
 	<center>
 		<h2 class="text-white"><b>Lista de Premios </b></h2>
 	</center>
@@ -12,7 +15,7 @@
 		<div class="col-4 pl-4">
 			<div class="card " style="width: 25rem;">
 				<div class="card-header bg-dark text-white">
-					<b> Registrar Premio:</b> <a class="btn btn-success pl-5 pr-5" href="<?php echo base_url('/index.php/cllPremios/'); ?>">Recargar tabla</a>
+					<b> Registrar Premio:</b>
 				</div>
 				<div class="card-body">
 					<div class="form-group">
@@ -21,33 +24,21 @@
 						</label>
 						<input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Peluche" required>
 					</div>
-					<div class="form-group pt-0">
-						<label for="firstname" class="col control-label">
-							Nombre Stock:
-						</label>
-						<input type="text" class="form-control" name="txtStock" id="txtStock" placeholder="Peluche" required>
-					</div>
 					<div class="form-group">
 						<label for="lastname" class="col control-label">
 							Ingrese una descripción:
 						</label>
 						<textarea class="form-control" rows="3" name="txtDesc" id="txtDes" placeholder="Peluche en forma de tigre" required></textarea>
 					</div>
-					<label for="exampleFormControlFile1"> Selecione foto:</label>
-					<div class="custom-file">
-						<input type="file" class="custom-file-input" name="txtImg" id="txtImg" lang="pl-Pl">
-						<label class="custom-file-label" for="customFileLang"></label>
-						<div id="preview" class="overflow-auto pt-1">
-							<center>
-								<img src="<? echo base_url() ?>image/imgUP.png" width="100" height="100" id="img1">
-							</center>
-						</div>
+					<label> Selecione foto:</label>
+					<input type="file" class="form-control" id="file-input" accept="image/*"> <br>
+					<div id="preview" class="overflow-auto pt-1">
+						<img src="" alt="" id="fire" width="100" height="100">
 					</div>
 					<br>
 					<center>
 						<button type=" submit" class="btn btn-success btn-lg btn-block" onclick="insertar()">Registrar</button>
 					</center>
-
 				</div>
 				<div class="card-footer bg-dark text-white">
 					<br>
@@ -62,41 +53,12 @@
 						<th>Nombre.</th>
 						<th>Imagen</th>
 						<th>Descripción.</th>
-						<th>Stock</th>
 						<th>Opciones.</th>
 						<th></th>
 					</tr>
 				</thead>
-				<tbody class="table-light">
-					<?php if ($datos != null) {
-						?>
-						<?php
-							foreach ($datos->result() as $dato) {
-								?>
-							<tr class="boton">
-								<td><?php echo $dato->IdPremio; ?></td>
-								<td><?php echo $dato->Nombre; ?></td>
-								<td> <img src="<?php echo $dato->foto; ?>" alt="" width="50" height="50">
-								</td>
-								<td><?php echo $dato->Descripcion; ?></td>
-								<td><?php echo $dato->Stock; ?></td>
-								<td>
-									<a type="button" class="btn btn-warning" id='<?php echo $dato->IdPremio; ?>' onclick="edit(this)" data-toggle="modal" data-target="#modEdit">
-										<img src="<?php echo base_url() ?>image/edit.png" width="25" height="25"></a>
-								</td>
-								<td>
-									<a type="button" class="btn btn-danger" href="<?php echo site_url('/cllPremios/eliminar/');
-																							echo $dato->IdPremio; ?>" onclick="eliminar(id)">
-										<img src="<?php echo base_url() ?>image/delete.png" width="25" height="25"></a>
-								</td>
-							<?php } ?>
-							</tr>
-						<?php
-						} else {
-							?>
-							<div class="alert alert-warning">No hay datos.</div>
-						<?php
-						} ?>
+				<tbody class="table-light" id="tblPremios">
+
 				</tbody>
 			</table>
 		</div>
@@ -126,33 +88,32 @@
 							</label>
 							<input type="text" class="form-control" name="txtNombreM" id="txtNombreM" placeholder="Peluche" required>
 						</div>
-						<div class="form-group pt-0">
-							<label for="firstname" class="col control-label">
-								Nombre Stock:
-							</label>
-							<input type="text" class="form-control" name="txtStock" id="txtStockM" placeholder="Peluche" required>
-						</div>
+
 						<div class="form-group">
 							<label for="lastname" class="col control-label">
 								Ingrese una descripción:
 							</label>
 							<textarea class="form-control" rows="3" name="txtDesc" id="txtDesM" placeholder="Peluche en forma de tigre" required></textarea>
 						</div>
-						<label for="exampleFormControlFile1"> Selecione foto:</label>
-						<div class="custom-file">
-							<input type="file" class="custom-file-input" name="txtImg" id="txtImgM" lang="pl-Pl">
-							<label class="custom-file-label" for="customFileLang"></label>
-							<div id="previewM" class="overflow-auto pt-1">
-								<center>
-									<img src="<?php echo base_url() ?>image/imgUP.png" width="100" height="100" id="img1M">
-								</center>
-							</div>
+						<label> Selecione foto:</label>
+						<input type="file" class="form-control" id="txtImgM" accept="image/*"> <br>
+						<div id="preview" class="overflow-auto pt-1">
+							<img src="" width="100" height="100" id="img1M">
 						</div>
 						<br>
 					</div>
 					<div class="card-footer bg-dark text-white">
-						<button type="button" class="btn btn-secondary" onclick="Recargar()" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" onclick="modificar()">Actualizar</button>
+						<div class="row">
+							<div class="col-4">
+								<button type="button" class="btn btn-danger btn-lg btn-block" onclick="Eliminar()">Eliminar</button>
+							</div>
+							<div class="col-4">
+								<button type="button" class="btn btn-warning btn-lg btn-block" onclick="modificar()" >Actualizar</button>
+							</div>
+							<div class='col-4'>
+								<button type="button" class="btn btn-secondary btn-lg btn-block" data-dismiss="modal">Cerrar</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -15,9 +15,11 @@
 	$('#comp6').hide();
 	$('.aumenta').show('slow');
 	$('#sec-2').hide();
-		alertify.alert("Hello world!");
+		var bo=confirm('<b>Elige</b> una opcion');
+		alert(bo);
+		/*alertify.alert("Hello world!");
 		alertify.confirm('Confirm Title', 'Confirm Message', function () { alertify.success('Ok') }
-			, function () { alertify.error('Cancel') });
+			, function () { alertify.error('Cancel') });*/
 });
 	$('#btnc1rs1').click(function() {
 		$('#comp1s').fadeOut('slow');
