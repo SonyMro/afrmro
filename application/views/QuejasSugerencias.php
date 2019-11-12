@@ -152,7 +152,7 @@
 								</div>
 							</div>
 						</div> <br>
-						<button type="submit" class="btn btn-success btn-lg btn-block">ENVIAR</button>
+						<button type="submit" class="btn btn-success btn-lg btn-block" onclick="enviarDatos()">ENVIAR</button>
 					</form>
 				</div>
 				<div class="card-footer text-muted bg-dark">

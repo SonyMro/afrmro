@@ -57,7 +57,7 @@
 					<form action="<?php echo site_url('/cllFelicitaciones/insertarfel'); ?>" method="POST">
 						<div class="form-group">
 							<div class="mb-3">
-								<textarea class="form-control inputFont" name='txthappy' id="txthappy" placeholder="Required example textarea" id="txthappy" rows="5" Onblur="validarCampo(this.value)" required></textarea>
+								<textarea class="form-control inputFont" name='txthappy' id="txthappy" placeholder="Eje. Me gusto el recorrido, me divertí mucho. " id="txthappy" rows="5" Onblur="validarCampo(this.value)" required></textarea>
 								<div class="" id='val'>
 								</div>
 							</div>

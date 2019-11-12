@@ -48,6 +48,7 @@ class cllPreguntas extends CI_Controller {
 		$this->load->view('../views/complementos/header');
 		//$datos['datos2'] = $this->mlPreguntas->getDatosMicriosip();
 		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas();
+		$datos['secciones'] = $this->mlPreguntas->Seciones();
 		$this->load->view('encuesta', $datos);
 		$this->load->view('../views/complementos/footer');	
 	}

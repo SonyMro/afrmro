@@ -29,16 +29,25 @@ class mlPreguntas extends CI_Model
 		}		
 	}
 	public function ObternerPreguntas()	{
-	$query = $this->db1->query('SELECT p.IdPregunta, p.Pregunta, p.tipo, p.IdSecion, p.IdGerencia, s.NombreSecion, g.Nombre FROM preguntas as p
+	$query = $this->db1->query('SELECT p.IdPregunta, p.Pregunta, p.tipo, p.IdSecion, s.NombreSecion, p.subpregunta FROM preguntas as p
 inner join seccion as s
 on p.IdSecion= s.IdSecion
-inner join gerencias as g
-on p.Idgerencia= g.IdGerencia
-ORDER BY p.IdSecion;');
+WHERE p.IdSecion IN (1,2,3,4,5)
+ORDER BY p.IdSecion,p.numero;');
 		if ($query != null) {
 			return $query;
 		} else {
 		
+			return false;
+		}
+	}
+	public function Seciones()
+	{
+		$query = $this->db1->query('SELECT * FROM evaluaciondeservicio.seccion;');
+		if ($query != null) {
+			return $query;
+		} else {
+
 			return false;
 		}
 	}

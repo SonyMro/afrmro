@@ -85,7 +85,7 @@ function validarEdad(edad) {
 	if (Edad!=null && Edad>=18 && Edad<=99) {
 		validarinputs(true, id, iddiv, 'Muy Bien');
 	} else {
-		validarinputs(false, id, iddiv, 'ERROR, POR FAVOR INGRESE SU EDAD CORRECTA <b> (DEBE DE ESTAR ENTRE 18 A 90 AÑOS)</b>.');
+		validarinputs(false, id, iddiv, 'ERROR, POR FAVOR INGRESE SU EDAD CORRECTA <b> (DEBE DE SER MAYOR A LOS 18 AÑOS)</b>.');
 	}
 }
 function validarinputs(bandera,idInp,iddiv,mens) {
@@ -150,3 +150,11 @@ function validarCorreo(correo) {
 		console.log('no')
 	}
 }
+
+function enviarDatos(){
+	Swal.fire(
+		'Good job!',
+		'You clicked the button!',
+		'success'
+	)
+  }

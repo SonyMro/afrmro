@@ -20,6 +20,7 @@ class cllBuzon extends CI_Controller
 	{  $idgere='1';
 		$datos = array(
 			'Nombre' => $this->input->post('txtNombre'),
+			'apellidos' => $this->input->post('txtApes'),
 			'Edad'=>$this->input->post('txtEdad'),
 			'correo' => $this->input->post('txtMail'),
 			'telefono' => $this->input->post('txtTel'),
@@ -31,7 +32,7 @@ class cllBuzon extends CI_Controller
 			'comentarios' => $this->input->post('txtQs'),
 			'IdGerencia' => $idgere
 		);
-	//	$this->mlBuzon->InsertarBuzon($datos);
+		$this->mlBuzon->InsertarBuzon($datos);
 		$this->load->view('../views/complementos/header');
 		$this->load->view('home'); {
 			$this->load->view('../views/complementos/footer');

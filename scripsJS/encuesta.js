@@ -15,8 +15,9 @@
 	$('#comp6').hide();
 	$('.aumenta').show('slow');
 	$('#sec-2').hide();
-		var bo=confirm('<b>Elige</b> una opcion');
-		alert(bo);
+		//var clase = $(this).attr('class')
+	/*	var bo=confirm('<b>Elige</b> una opcion');
+		alert(bo);*/
 		/*alertify.alert("Hello world!");
 		alertify.confirm('Confirm Title', 'Confirm Message', function () { alertify.success('Ok') }
 			, function () { alertify.error('Cancel') });*/
@@ -48,7 +49,92 @@
 		$('#comp2s').hide(2000);
 	$('#comp4s').show('slow');
 });
+var base_url = window.location.origin;
+function subPreguntasLikert(caja,sub,id) {
+	var valor =parseInt($(caja).val());
+	//console.log(sub);
+	console.log('hi');
+	if (sub !=null && sub.length>0) {
+		if (valor!=5) {
+			console.log('caja');
+			console.log(id);
+			var b=parseInt(id);
+			$('#div' + id).empty();
+			$('#div' + id).append('<div class="form-group"> <h5>'+sub+'</h5>'+
+			'<input type="text" class="form-control" name="sub'+id+'" ><br/>'
+				+'<input type="text" style="display: none;" name="Idpregunta'+id+'" value="'+id+'"> </div>');
+		} else {
+			$('#div' + id).empty();
+		}
+	} else {
+		console.log('no caja');
+	}
+}
+function eliminarEfecto(event) {
+	//console.log($(id).attr('id'));
+	$("#" + $(event).attr('id')).removeClass('brillo');
+	//console.log('hijjjjjjjjj');
+}
+function getFormData(formId) {
+//	console.log($('#'+formId).serializeArray());
+	var datos = $('#' + formId).serializeArray();
+	console.log(datos);
+	var iteraciones = (datos.length / 2);
+	console.log(iteraciones);
+	console.log(datos[0].value);
+	for (let i = 0; i < iteraciones; i++) {
+		console.log('IdPre: ' + datos[i*2].value + ' IdEnc: ' + datos[(i * 2)+1].value);
+	}
+	
+}
+function insertar() {
+	
+	
+	/*$.ajax({
+		type: "POST",
+		url: "url",
+		data: {},
+		dataType: "JSON",
+		success: function (response) {
+			console.log(response);
+		},
+		error: function (params) {
+			console.log(params);
+		}
+	});*/
+}
+setInterval(
+	function () {
+		apacidadMas2();
+		apacidadMenos2();
+	}, 2000);
 
+function apacidadMas2() {
+	$('.brillo').animate({
+		'opacity': '0.05'
+	}, "slow");
+}
+
+function apacidadMenos2() {
+	$('.brillo').animate({
+		'opacity': '1'
+	}, "slow");
+}
+/*
+function getFormData() {
+	var config={};
+	$('input').each(function () {
+		config[this.name]=this.value;
+	});
+	console.log(config);
+}*/
+function selecionarRadio(event) {
+	var clase = +$(event).attr('class');
+	var id = $(event).attr('id');
+	$("input:radio[id='" + id + "']").prop("checked", true);
+	$('.' + clase).not(this).prop('checked', false);
+
+}
 	function Guias(event) {
 		var valorGuia = $(event).attr('value');
 		if (valorGuia == 'guia' || valorGuia == 'operador guia') {
