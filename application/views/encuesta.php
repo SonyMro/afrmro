@@ -218,8 +218,8 @@ function cards($grupo)
 								</div>
 							<?php
 											break;
-										case 'esperaba':			?>
-								<div class="form-group brillo" id="lbl<?php echo $value->IdPregunta; ?>" onclick="eliminarEfecto(this);">
+										case 'esperaba':?>
+								<div class="form-group">
 									<h5 for="inputPassword6">
 										<?php echo $value->IdPregunta . ' ' . $value->Pregunta; ?>
 									</h5><br />
@@ -232,8 +232,8 @@ function cards($grupo)
 								</div>
 							<?php
 											break;
-										case 'abiertalarga':			?>
-								<div class="form-group brillo" id="lbl<?php echo $value->IdPregunta; ?>" onclick="eliminarEfecto(this);">
+										case 'abiertalarga':?>
+								<div class="form-group">
 									<h5 for="inputPassword6">
 										<?php echo $value->IdPregunta . ' ' . $value->Pregunta; ?>
 									</h5><br />

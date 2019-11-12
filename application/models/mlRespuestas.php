@@ -1,5 +1,5 @@
 <?php
-class mlRespuesta extends CI_Model
+class mlRespuestas extends CI_Model
 {
 	function __construct()
 	{
@@ -14,9 +14,19 @@ class mlRespuesta extends CI_Model
 			return false;
 		}
 	}
-
-	public function Insertar()
+	public function Insertar($datos)
 	{
-		
+		try {
+			$this->db->trans_start();
+			$this->db->insert('respuestas', $datos);
+			$this->db->trans_complete();
+			if ($this->db->trans_status() === FALSE) {
+				return FALSE;
+			} else {
+				return TRUE;
+			}
+		} catch (Exception $e) {
+			log_message('error', $e->getMessage());
+		}
 	}
 }
