@@ -86,7 +86,6 @@ function listarPremios() {
 
 function insertar() {
 	console.log(imagen);
-
     var base_url = window.location.origin;
 	var nombre = $('#txtNombre').val();
 	var descrip = $('#txtDes').val();

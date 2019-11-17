@@ -22,7 +22,7 @@
 						BUSCAR NÚMERO DE RESERVACIÓN.
 					</h5>
 					<div class="form-group">
-						<input type="text" class="form-control" id="exampleInputEmail1">
+						<input type="text" class="form-control">
 					</div>
 					<button class="btn btn-success pl-5 pr-5" onclick="BuscarReserva()">
 						BUSCAR
@@ -218,7 +218,7 @@ function cards($grupo)
 								</div>
 							<?php
 											break;
-										case 'esperaba':?>
+										case 'esperaba': ?>
 								<div class="form-group">
 									<h5 for="inputPassword6">
 										<?php echo $value->IdPregunta . ' ' . $value->Pregunta; ?>
@@ -232,16 +232,16 @@ function cards($grupo)
 								</div>
 							<?php
 											break;
-										case 'abiertalarga':?>
+										case 'abiertalarga': ?>
 								<div class="form-group">
 									<h5 for="inputPassword6">
 										<?php echo $value->IdPregunta . ' ' . $value->Pregunta; ?>
 									</h5><br />
 									<div class="brillo" id="lbl<?php echo $value->IdPregunta; ?>" onclick="eliminarEfecto(this);">
-									<textarea class="form-control" name="AbiertaLarga<?php echo $value->IdPregunta; ?>" rows="3"></textarea>
-									<input type="text" name="IdPregunta<?php echo $value->IdPregunta; ?>" style="display: none;" value="<?php echo $value->IdPregunta ?>">
+										<textarea class="form-control" name="AbiertaLarga<?php echo $value->IdPregunta; ?>" rows="3"></textarea>
+										<input type="text" name="IdPregunta<?php echo $value->IdPregunta; ?>" style="display: none;" value="<?php echo $value->IdPregunta ?>">
+									</div>
 								</div>
-							</div>
 							<?php
 											break;
 										default:
@@ -264,7 +264,7 @@ function cards($grupo)
 								?>
 				</div>
 				<div class="card-footer text-muted bg-dark">
-					FIN
+					<br>
 				</div>
 			</div>
 		</div>
@@ -277,9 +277,9 @@ function cards($grupo)
 }
 ?>
 <center>
-	<div class="form-group p-5">
-		<button type="button" onclick="getFormData('form1')" class="btn btn-success bg btn-block p-5">
-			<h2>Enviar Respuestas</h2>
+	<div class="form-group pl-3 pr-2">
+		<button type="button" onclick="getFormData('form1')" class="btn btn-success bg btn-block">
+			<h2>ENVIAR RESPUESTAS.</h2>
 		</button>
 	</div>
 </center>

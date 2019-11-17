@@ -60,4 +60,16 @@ class Home extends CI_Controller
 		$this->load->view('menu');
 		$this->load->view('../views/complementos/footer');
 	}
+	public function reservacion()
+	{
+		$this->load->view('../views/complementos/header');
+		$this->load->view('reservacion');
+		$this->load->view('../views/complementos/footer');
+	}
+	public function game()
+	{
+		$this->load->view('../views/complementos/header');
+		$this->load->view('game');
+		$this->load->view('../views/complementos/footer');
+	}
 }
