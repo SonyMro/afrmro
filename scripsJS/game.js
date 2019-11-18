@@ -15,16 +15,25 @@ function Premios(handleData) {
 var contnador = 0;
 var band= true;
 function parar() {
+	var base_url = window.location.origin;
      contnador+=1;
 	if (contnador%2==0) {
+		$('#btnplay').removeClass('btn-success').addClass('btn-warning');
+		$('#imgBoton').attr('src', base_url + '/sc/image/stop.png');
 		console.log(contnador);
 		band=true;
-		return band;
-		//band= false;
 	} else {
 		band= false;
-	//	band=false
+		$('#btnplay').removeClass('btn-warning').addClass('btn-success');
+		$('#imgBoton').attr('src',base_url+'/sc/image/play.png');
+		$('#myModal').modal('show');
+		setTimeout(function () { 
+			$('#myModal').modal('hide');
+			 capturado(); 
+			 console.log('time'); 
+			}, 3000);
 	}
+	
 }
 function Mover() {
 	var datos=[];
@@ -33,28 +42,13 @@ function Mover() {
 		datos=params;
 		var cont=0;
 		let mLetf=0;
-		let tam=0;
 		let img=document.getElementById('img5');
 		console.log(datos.length);
 	    var time=setInterval(function () {
-				if (band) {
-					//console.log(cont);				
+				if (band) {				
 					img.style.marginLeft = mLetf + 'px';
-					mLetf += 200;
-					//console.log(mLetf);
-					console.log(band);
-					if (mLetf >= 400 & mLetf <= 500) {
-						//img.style.border = "thick solid #ff0000";
-						img.style.backgroundColor = 'red';
-						img.style.width = "410px";
-						img.style.height = "410px";
-					} else {
-						img.style.backgroundColor = '';
-						//img.style.border = "";
-						img.style.width = "250px";
-						img.style.height = "250px";
-					}
-					if (mLetf >= 800) {
+					mLetf += 200;					
+					if (mLetf >= 500) {
 						mLetf = 0;
 						if (cont==datos.length) {
 						//console.log(cont);
@@ -62,18 +56,32 @@ function Mover() {
 						} else {
 						//console.log('no' + cont);
 							$('#img5').attr('src', datos[cont].foto);
+							$('#imgModal').attr('src', datos[cont].foto);
+							$('#img5').attr('class', datos[cont].IdPremio);
+							$('#imgmod').attr('id', datos[cont].IdPremio);
+							//$().html();imgmod imgModal
+							$('#hname').html('HAZ ATRAPADO UN: ' + datos[cont].IdPremio+' '+datos[cont].IdPremio);
+							//$('#img5').attr('id', datos[cont].foto);
 							cont++;
 						}
-						
 					}
 				}else{
-					console.log('Stop');
+					
 				}
 		
 			},100);
 	});
+}var contar=0;
+function capturado() {
+	if (contar<=3) {
+		contar++;
+	}
+	else{
+		$('#btnplay').attr('disabled');
+	}
 
 }
+
 	function ajax() {
 		$.ajax({
 			type: "POST",
