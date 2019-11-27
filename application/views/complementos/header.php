@@ -19,6 +19,7 @@
 	<!-- include a theme -->
 	<link rel="stylesheet" href="<?php echo base_url('AlertifyJS/alertify.min.css') ?>" />
 	<link rel="stylesheet" href="<?php echo base_url('AlertifyJS/themes/default.min.css') ?>" />
+
 </head>
 
 <body>
@@ -31,6 +32,7 @@
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/sweetalert.min.js'); ?>"></script>
 	<script src="<?php echo base_url('AlertifyJS/alertify.min.js'); ?>"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<nav class=" rounded navbar navbar-light bg-dark">
 		<a class="navbar-brand" href="#">
 			<img src="<?php echo base_url() ?>image/africam1.png" alt="africam" width="100" height="45" />

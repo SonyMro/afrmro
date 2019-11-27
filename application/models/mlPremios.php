@@ -59,7 +59,21 @@ class mlPremios extends CI_Model
 			log_message('error', $e->getMessage());
 		}
 	}
-	
+	public function registrarCode($datos)
+	{
+		try {
+			$this->db->trans_start();
+			$this->db->insert('codigo', $datos);
+			$this->db->trans_complete();
+			if ($this->db->trans_status() === FALSE) {
+				return FALSE;
+			} else {
+				return TRUE;
+			}
+		} catch (Exception $e) {
+			log_message('error', $e->getMessage());
+		}
+	}
 	public function detele($idP)
 	{
 		try {

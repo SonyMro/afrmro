@@ -49,6 +49,19 @@ class cllPremios extends CI_Controller {
  $this->mlPremios->insert($data);
 
 	}
+	public function code(){
+		$data = array(
+			'Idpremio'  => $this->input->post('IdPremio'),
+			'codigo'  => $this->input->post('code')
+		);
+		$ver=$this->mlPremios->registrarCode($data);
+		if ($ver) {
+			echo 'Si';
+		} else {
+			echo 'No';
+		}
+		
+	}
 	public function eliminar($idp){
 		$parametros = array("IdPremio" => $idp);		
 	$verificar=	$this->mlPremios->detele($parametros);
