@@ -52,3 +52,6 @@ function validarCampo(params) {
 	}
 
 }
+function alerta(){
+alert('grasias');
+}

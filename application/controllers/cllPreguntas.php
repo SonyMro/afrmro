@@ -2,8 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cllPreguntas extends CI_Controller {
-	
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -26,7 +24,8 @@ class cllPreguntas extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mldb2');
-		$this->load->model('mlPreguntas');		
+		$this->load->model('mlPreguntas');
+		$this->load->library('session'); 	
 	}
 	public function cargarPreguntas(){
 	$this->load->view('../views/complementos/header');
@@ -45,9 +44,9 @@ class cllPreguntas extends CI_Controller {
 	}
 	public function obtenerPreguntas()
 	{
+		$in = $this->session->flashdata('in');
 		$this->load->view('../views/complementos/header');
-		//$datos['datos2'] = $this->mlPreguntas->getDatosMicriosip();
-		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas();
+		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas($in);
 		$datos['secciones'] = $this->mlPreguntas->Seciones();
 		$this->load->view('encuesta', $datos);
 		$this->load->view('../views/complementos/footer');	

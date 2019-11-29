@@ -3,6 +3,11 @@
 		font-family: 'Luckiest Guy', cursive;
 		font-size: 12px;
 	}
+
+	.inputFont {
+		font-family: "Times New Roman", Times, serif;
+		font-size: 18px;
+	}
 </style>
 
 <div class="container-fluid font">
@@ -22,8 +27,12 @@
 						BUSCAR NÚMERO DE RESERVACIÓN.
 					</h5>
 					<div class="form-group">
-						<input type="text" class="form-control">
+						<input type="text" id='txtReservacion' class="form-control inputFont" onblur="validarFolio()">
+						<div class="" id="valfolio">
+
+						</div>
 					</div>
+					<br>
 					<button class="btn btn-success pl-5 pr-5" onclick="BuscarReserva()">
 						BUSCAR
 					</button>
@@ -49,40 +58,47 @@
 					<br />
 					<div class="col-6 p-1">
 						<h4>NOMBRE DEL RESPONSABLE.</h4>
-						<h5 id="">Text</h5>
+						<h5 id="hNombre">Text</h5>
 					</div>
 					<div class="col-6 p-1">
 						<h4>INSTITUCIÓN/GRUPO.</h4>
-						<h5 id="">Text</h5>
+						<h5 id="hInst">Text</h5>
 					</div>
 					<br />
 
 					<br />
 					<div class="col-6 p-1">
 						<h4>CORREO.</h4>
-						<h5 id="">Text</h5>
+						<h5 id="hMail">Text</h5>
 					</div>
 					<br />
 					<div class="col-6 p-1">
 						<h4>NUMERO ADULTOS.</h4>
-						<h5 id="">Text</h5>
+						<h5 id="hAdult">Text</h5>
 					</div>
 					<br />
 					<div class="col-6 p-1">
 						<h4>NUMERO NIÑOS</h4>
-						<h5 id="">Text</h5>
+						<h5 id="hBoy">Text</h5>
 					</div>
 					<br />
 					<div class="col-6 p-1">
 						<h4>SERVICIOS.</h4>
-						<h5 id="">Text</h5>
+						<h5 id="hServ">Text</h5>
 					</div>
 					<div class="col-12 form-inline float-sm-right pt-2 pb-2">
 						<h4 class="pl-3 pr-2">¿ES LA PRIMERA VEZ QUE HA VISITADO AFRICAM SAFARI? </h4> <br>
-						<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2n' value="bus africamion" required>SI
+						<h5 class="radio-inline form-check-label">
+							<input type="radio" class="form-check-input" name="optradio1" id='rdop2n' value="bus africamion" required>SI
 						</h5>
-						<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2n' value="bus africamion" required>NO
+						<h5 class="radio-inline form-check-label">
+							<input class="form-check-input" type="radio" name="optradio1" id='rdop2n' value="bus africamion" required>NO
 						</h5>
+					</div>
+					<div class="col-12 form-inline float-sm-right pt-2 pb-2">
+						<h4 class="pl-3 pr-2">NUMERO DE BUS O COMBOY </h4> <br>
+						<input type="number" class="radio-inline form-control" name="txtBus" id='txtBus' value="" required>
+
 					</div>
 					<div class="col-6 pr-5">
 						<button class="btn btn-success btn-lg btn-block" onclick="siReser()">

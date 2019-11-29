@@ -29,5 +29,37 @@ class mlEncuesta extends CI_Model
 			log_message('error', $e->getMessage());
 		}
 	}
+
+	public function buscarServicios($cadena)
+	{
+		$listar='';
+		$listaservicios = explode(",", $cadena);
+		$tam=count($listaservicios);
+		if (empty($listaservicios)) {
+			$listar = '';
+		} else {
+			for ($i=0; $i <$tam ; $i++) {
+				switch ($listaservicios[$i]) {
+					case 'Safari con guía':
+						$listar .="1,";
+						break;
+					case 'Autobús Contratado':
+						$listar .='2,';
+						break;
+					case 'Servicio educativo':
+						$listar .='3,';
+						break;
+					case 'Servicio de alimentos':
+						$listar .='4,';
+						break;
+					default:
+						break;
+				}
+			}
+			
+		}
+
+		return $listar.'5';
+	}
 	
 }

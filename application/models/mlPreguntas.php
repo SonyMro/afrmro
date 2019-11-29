@@ -28,11 +28,12 @@ class mlPreguntas extends CI_Model
 			return false;
 		}		
 	}
-	public function ObternerPreguntas()	{
-	$query = $this->db1->query('SELECT p.IdPregunta, p.Pregunta, p.tipo, p.IdSecion, s.NombreSecion, p.subpregunta FROM preguntas as p
+	public function ObternerPreguntas($listar)	{
+		//$lista='2,4,5';
+$query = $this->db1->query('SELECT p.IdPregunta, p.Pregunta, p.tipo, p.IdSecion, s.NombreSecion, p.subpregunta FROM preguntas as p
 inner join seccion as s
 on p.IdSecion= s.IdSecion
-WHERE p.IdSecion IN (1,2,3,4,5)
+WHERE p.IdSecion IN ('.$listar.')
 ORDER BY p.IdSecion,p.numero;');
 		if ($query != null) {
 			return $query;

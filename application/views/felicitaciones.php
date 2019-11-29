@@ -2,6 +2,7 @@
 	.font {
 		font-family: 'Luckiest Guy', cursive;
 		font-size: 12px;
+		text-transform: uppercase;
 	}
 
 	.inputFont {
@@ -63,7 +64,7 @@
 							</div>
 						</div>
 				</div>
-				<button type="submit" class="btn btn-dark btn-lg btn-block">Listo</button>
+				<button type="submit" class="btn btn-success btn-lg btn-block brillo">FElicitar</button>
 				</form>
 			</div>
 
