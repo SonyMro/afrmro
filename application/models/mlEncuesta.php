@@ -15,15 +15,16 @@ class mlEncuesta extends CI_Model
 		}
 	}
 	public function Insertar($datos)
-	{
+	{		
 		try {
 			$this->db->trans_start();
 			$this->db->insert('encuesta', $datos);
+			$insert_id = $this->db->insert_id();
 			$this->db->trans_complete();
 			if ($this->db->trans_status() === FALSE) {
 				return FALSE;
 			} else {
-				return TRUE;
+				   return $insert_id;
 			}
 		} catch (Exception $e) {
 			log_message('error', $e->getMessage());
