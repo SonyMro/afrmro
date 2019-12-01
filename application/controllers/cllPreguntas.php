@@ -45,11 +45,15 @@ class cllPreguntas extends CI_Controller {
 	public function obtenerPreguntas()
 	{
 		$in = $this->session->flashdata('in');
+		$idEncuesta = $this->session->flashdata('idEnc');
 		$this->load->view('../views/complementos/header');
 		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas($in);
 		$datos['secciones'] = $this->mlPreguntas->Seciones();
+		$datos['idEncuesta'] = $idEncuesta;
 		$this->load->view('encuesta', $datos);
-		$this->load->view('../views/complementos/footer');	
+		$this->load->view('../views/complementos/footer');
+		// destroy session
+		$this->session->sess_destroy();
 	}
 	
 }

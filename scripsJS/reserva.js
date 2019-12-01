@@ -4,16 +4,17 @@ $(document).ready(function () {
 	var fecha = f.getFullYear() + '-' + (f.getMonth() + 1) + "-" + f.getDate() + ' ' + f.getHours() + ':' + f.getMinutes() + ':' + f.getSeconds();
 	console.log(fecha);
 	$('#txtFecha').val(fecha);
+	//alert();
+//	$('#modalCargando').modal({ backdrop: 'static', keyboard: false })
 });
-
 /* Eventos*/
 function BuscarReserva() {
-	//console.log();
+
 	var verif = validarFolio();
 	console.log(verif);
 	var folio = $('#txtReservacion').val();
 	if (verif) {
-		consultarReservacion(folio);
+		consultarReservacion();
 		$('#sec-2').show('slow');
 		$('#sec-1').hide('slow');
 	} else {
@@ -21,6 +22,8 @@ function BuscarReserva() {
 	}
 }
 function noReser() {
+	$('#txtReservacion').val('');
+	$('#txtConvoy').val('');
 	$('#sec-2').hide('slow');
 	$('#sec-1').show('slow');
 }
@@ -40,26 +43,41 @@ function validarFolio() {
 		return false;
 	}
 }
-function consultarReservacion(folio) {
+function consultarReservacion() {
 	var base_url = window.location.origin;
+	var folio = $('#txtReservacion').val();
+	$('#valfolio').empty();
+	if (folio.length>0) {			
 	$.ajax({
 		url: base_url + '/microws/prueba.php?folio=' + folio,
 		type: 'POST',
 		success: function (result) {
 			var respuesta = JSON.parse(result);
-			console.log(respuesta);
-			$('#txtRef').val(respuesta.result.id);
-			$('#txtRespon').val(respuesta.result.responsable);
-			$('#txtGrup').val(respuesta.result.instGrupo);
-			$('#txtMail').val(respuesta.result.mail);
-			$('#txtAdult').val(respuesta.result.NumAdultos);
-			$('#txtNinios').val(respuesta.result.NumNiños);
-			$('#txtServ').val(respuesta.result.servicios);
-			$('#txtTel').val(respuesta.result.telefono);
+			console.log(respuesta.status);
+			if (respuesta.status=='ok') {
+				$('#txtRef').val(respuesta.result.id);
+				$('#txtRespon').val(respuesta.result.responsable);
+				$('#txtGrup').val(respuesta.result.instGrupo);
+				$('#txtMail').val(respuesta.result.mail);
+				$('#txtAdult').val(respuesta.result.NumAdultos);
+				$('#txtNinios').val(respuesta.result.NumBoys);
+				$('#txtServ').val(respuesta.result.servicios);
+				$('#txtTel').val(respuesta.result.telefono);
+				$('#sec-2').show('slow');
+				$('#sec-1').hide('slow');
+			} else {
+				$("#txtReservacion").removeClass('is-valid').addClass('is-invalid');
+				$('#valfolio').removeClass('valid-feedback').addClass('invalid-feedback').append('<h6>Verifique que su reservación este correcta. </h6>');
+			}			
 		},
 		error: function (xhr, textStatus, errorMessage) {
 			console.log("ERROR" + errorMessage.errorMessage + textStatus + xhr);
 		}
 	});/**/
+	} else {
+		$("#txtReservacion").removeClass('is-valid').addClass('is-invalid');
+		$('#valfolio').removeClass('valid-feedback').addClass('invalid-feedback').append('<h6>Verifique que su reservación este correcta. </h6>');
+	}
 }
+
 

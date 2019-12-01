@@ -85,12 +85,14 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
+
 		setInterval(function() {
 			menos();
 			mas();
 			//opacidadTitulo();
 		}, 3000);
 	});
+	
 
 	function menos() {
 		//	$(".salto").append("<br>");

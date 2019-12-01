@@ -26,12 +26,12 @@
 						BUSCAR NÚMERO DE RESERVACIÓN.
 					</h5>
 					<div class="form-group">
-						<input type="text" id="txtReservacion" class=" form-control" class="form-control inputFont" onblur="validarFolio()">
+						<input type="text" id="txtReservacion" class=" form-control inputFont" class="form-control inputFont" >
 						<div class="" id="valfolio">
 
 						</div>
 					</div>
-					<button class="btn btn-success pl-5 pr-5" onclick="BuscarReserva()">
+					<button class="btn btn-success pl-5 pr-5" onclick="consultarReservacion();">
 						BUSCAR
 					</button>
 				</div>
@@ -98,7 +98,7 @@
 						<div class="row">
 							<div class="col-1"></div><input type="text" id='txtNinios' name="txtNinios" class="form-control col-10" readonly>
 						</div>
-					</div><br/>
+					</div><br />
 					<div class="col-6 p-1">
 						<h4>TElefono</h4>
 						<div class="row">
@@ -114,7 +114,7 @@
 					</div>
 					<div class="col-12 form-inline float-sm-right pl-4 pb-2 pt-2">
 						<h4>INGRESE EL NÚMERO DE BUS O CONVOY:</h4> <br>
-						<input type="text" class="form-control ml-3 inputFont" value="" name="txtConvoy" required>
+						<input type="number" class="form-control ml-3 inputFont" value="" name="txtConvoy" required>
 					</div> <br> <br>
 					<div class="col-12  pl-1 pb-2 pt-2">
 						<div class="row">
@@ -142,4 +142,5 @@
 	</div>
 	<br>
 </div>
+
 <script type="text/javascript" src="<?php echo base_url(); ?>scripsJS/reserva.js"></script>

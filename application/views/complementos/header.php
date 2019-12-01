@@ -34,8 +34,8 @@
 	<script src="<?php echo base_url('AlertifyJS/alertify.min.js'); ?>"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<nav class=" rounded navbar navbar-light bg-dark">
-		<a class="navbar-brand" href="#">
-			<img src="<?php echo base_url() ?>image/africam1.png" alt="africam" width="100" height="45" />
+		<a class="navbar-brand" >
+			<img src="<?php echo base_url() ?>image/africam1.png" alt="africam" width="100" height="45" id="imgHome" />
 		</a>
 		<div class="btn-group">
 			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

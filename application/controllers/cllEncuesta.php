@@ -48,6 +48,7 @@ class cllEncuesta extends CI_Controller
 		/**/$verificar = $this->mlEncuesta->Insertar($datos);
 		if ($verificar != false) {
 			$this->session->set_flashdata('in',$ver);
+			$this->session->set_flashdata('idEnc', $verificar);
 			redirect(base_url('index.php/cllPreguntas/obtenerPreguntas'));
 		} else {
 			

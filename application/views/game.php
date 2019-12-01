@@ -1,8 +1,8 @@
 <style>
 	.font {
+		text-transform: uppercase;
 		font-family: 'Luckiest Guy', cursive;
 		font-size: 12px;
-		text-transform: uppercase;
 	}
 
 	.box {

@@ -201,6 +201,19 @@ function registrarCode(idPremio, codigo) {
 	});/**/
 }
 
+$('#imgHome').click(function () {
+	var confirmar = confirm("Si das en aceptar ya no podrás seguir viendo el código de tu premio.");
+	var base_url = window.location.origin;
+	if (confirmar) {
+		location.href = base_url + "/sc/index.php";
+	} else {
+		console.log('Se canselo');
+	}
+});
+function IrAInicio() {
+
+	
+}
 
 setInterval(
 	function () {

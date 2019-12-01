@@ -25,9 +25,11 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mlPreguntas');
+		$this->load->library('session'); 
 	}
 	public function index()
 	{
+		$this->session->sess_destroy();
 		$this->load->view('../views/complementos/header');
 		$this->load->view('home'); {
 			$this->load->view('../views/complementos/footer');

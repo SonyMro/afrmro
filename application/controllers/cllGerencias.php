@@ -7,7 +7,8 @@ class cllGerencias extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('mlGerencias');		
+		$this->load->model('mlGerencias');
+		$this->load->library('session'); 		
 	}
 	public function index(){
 		$datos['datos'] = $this->mlGerencias->listarGerencias();

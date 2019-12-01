@@ -9,6 +9,7 @@ class cllPremios extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mlPremios');
+		$this->load->library('session'); 
 		$this->load->database();	
 	}
 	public function index(){
