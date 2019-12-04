@@ -19,7 +19,8 @@
 	<!-- include a theme -->
 	<link rel="stylesheet" href="<?php echo base_url('AlertifyJS/alertify.min.css') ?>" />
 	<link rel="stylesheet" href="<?php echo base_url('AlertifyJS/themes/default.min.css') ?>" />
-
+	<link rel="stylesheet" href="<?php echo base_url('ChartJS/Chart.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('ChartJS/Chart.min.css') ?>">
 </head>
 
 <body>
@@ -31,20 +32,33 @@
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('bootstrap/js/sweetalert.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('ChartJS/Chart.bundle.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('ChartJS/Chart.bundle.min.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('ChartJS/Chart.min.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('ChartJS/Chart.js') ?>"></script>
 	<script src="<?php echo base_url('AlertifyJS/alertify.min.js'); ?>"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<nav class=" rounded navbar navbar-light bg-dark">
-		<a class="navbar-brand" >
+		<a class="navbar-brand">
 			<img src="<?php echo base_url() ?>image/africam1.png" alt="africam" width="100" height="45" id="imgHome" />
 		</a>
+
 		<div class="btn-group">
-			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<img src="<?php echo base_url() ?>image/user.svg" alt="" width="30px" height="30px">
-			</button>
-			<div class="dropdown-menu dropdown-menu-right">
-				<button class="dropdown-item" type="button">Iniciar sesión</button>
-				<button class="dropdown-item" type="button">Ver resultados</button>
-				<button class="dropdown-item" type="button">Cerrar Seccion.</button>
-			</div>
+			<?php if ($verNav) {
+				//echo 'true';
+				?>
+				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="<?php echo base_url() ?>image/user.svg" alt="" width="30px" height="30px">
+				</button>
+				<div class="dropdown-menu dropdown-menu-right">
+					<button class="dropdown-item" type="button"><a href="<?php echo base_url('/index.php/cllUser/login'); ?>"> Iniciar sesión</a></button>
+					<button class="dropdown-item" type="button"><a href="<?php echo base_url('/index.php/cllUser'); ?>"> Ir a Menu</a></button>
+					<button class="dropdown-item" type="button"><a href="<?php echo base_url('/index.php/cllUser'); ?>"> Cerrar sesión</a> </button>
+				</div>
+			<?php
+			} else {
+				//echo 'false';
+			}
+			?>
 		</div>
 	</nav>

@@ -29,15 +29,17 @@ class Home extends CI_Controller
 	}
 	public function index()
 	{
+		$Navbar['verNav'] =false;
 		$this->session->sess_destroy();
-		$this->load->view('../views/complementos/header');
+		$this->load->view('../views/complementos/header',$Navbar);
 		$this->load->view('home'); {
 			$this->load->view('../views/complementos/footer');
 		}
 	}
 	public function fel()
 	{
-		$this->load->view('../views/complementos/header');
+		$Navbar['verNav'] = false;
+		$this->load->view('../views/complementos/header',$Navbar);
 		$this->load->view('felicitaciones');
 		$this->load->view('../views/complementos/footer');
 	}
@@ -64,13 +66,15 @@ class Home extends CI_Controller
 	}
 	public function reservacion()
 	{
-		$this->load->view('../views/complementos/header');
+		$Navbar['verNav'] = false;
+		$this->load->view('../views/complementos/header', $Navbar);
 		$this->load->view('reservacion');
 		$this->load->view('../views/complementos/footer');
 	}
 	public function game()
 	{
-		$this->load->view('../views/complementos/header');
+		$Navbar['verNav'] = false;
+		$this->load->view('../views/complementos/header', $Navbar);
 		$this->load->view('game');
 		$this->load->view('../views/complementos/footer');
 	}

@@ -46,7 +46,8 @@ class cllPreguntas extends CI_Controller {
 	{
 		$in = $this->session->flashdata('in');
 		$idEncuesta = $this->session->flashdata('idEnc');
-		$this->load->view('../views/complementos/header');
+		$Navbar['verNav'] = false;
+		$this->load->view('../views/complementos/header', $Navbar);
 		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas($in);
 		$datos['secciones'] = $this->mlPreguntas->Seciones();
 		$datos['idEncuesta'] = $idEncuesta;
@@ -55,5 +56,25 @@ class cllPreguntas extends CI_Controller {
 		// destroy session
 		$this->session->sess_destroy();
 	}
+public function buscarPreguntas()
+{
+	header("Content-Type: application/json");	
+	$idg =$this->input->post('idg');
+	$idr  = $this->input->post('idr');
+	if ($idr=='1') {
+			$consulta = $this->mlPreguntas->AllPreguntas()->result();
+	} else {
+			$consulta = $this->mlPreguntas->listarPorgerencia($idg)->result();
+	}
+	
+	if ($consulta!=null) {
+		$data['status'] = "ok";
+		$data['result']=$consulta;
+		echo json_encode($data);
+	} else {
+		echo '{"status":"err","result":"null"}';
+	}
+	
+}
 	
 }

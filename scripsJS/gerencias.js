@@ -1,5 +1,7 @@
-$(document).ready(
-);
+$(document).ready(function () {
+
+	
+  });
 
 function getFila(obj) {
 	var id= $(obj).attr('id');

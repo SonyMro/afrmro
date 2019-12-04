@@ -106,7 +106,6 @@
 								<div class="row">
 									<div class="col">
 										<h5 class="radio-inline"><input type="radio" name="optradio1" id='rdop2s' value="Automovil" required>AUTOMÓVIL <br>
-											<img src="<?php echo base_url() ?>image/auto.png" width="100" height="100" alt="https://www.flaticon.es/icono-gratis/carreras_263396">
 										</h5>
 									</div>
 									<div class="col">

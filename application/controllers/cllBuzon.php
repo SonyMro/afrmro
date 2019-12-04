@@ -13,7 +13,8 @@ class cllBuzon extends CI_Controller
 	}
 	public function QuejasSugerencias()
 	{
-		$this->load->view('../views/complementos/header');
+		$Navbar['verNav'] = false;
+		$this->load->view('../views/complementos/header', $Navbar);
 		$this->load->view('QuejasSugerencias');
 		$this->load->view('../views/complementos/footer');
 	}
@@ -34,10 +35,12 @@ class cllBuzon extends CI_Controller
 			'IdGerencia' => $idgere
 		);
 		$this->mlBuzon->InsertarBuzon($datos);
-		$this->load->view('../views/complementos/header');
+	/*	$Navbar['verNav'] = false;
+		$this->load->view('../views/complementos/header', $Navbar);
 		$this->load->view('home'); {
 			$this->load->view('../views/complementos/footer');
-		}
+		}*/
+		redirect(base_url());
 	}
 	public function listarBuzon(){
 		$datos['listaBuzon'] = $this->mlBuzon->ListarDatos();

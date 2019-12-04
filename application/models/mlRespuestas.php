@@ -6,7 +6,8 @@ class mlRespuestas extends CI_Model
 		parent::__construct();
 		$this->load->database();
 	}
-	public function getPreguntas(){
+	public function getPreguntas()
+	{
 		$query = $this->db->get('preguntas');
 		if ($query->num_rows() > 0) {
 			return $query;
@@ -29,4 +30,18 @@ class mlRespuestas extends CI_Model
 			log_message('error', $e->getMessage());
 		}
 	}
-}
+	public function verResultados()
+	{
+		$query = $this->db->query('SELECT DISTINCT(Respuesta),
+(SELECT count(Respuesta) 
+from respuestas WHERE Respuesta = r.Respuesta)  
+as cantidad
+from respuestas as r
+where Idpregunta=2 and (date(fecha) BETWEEN "2019-01-01" AND "2019-12-30") order by cantidad desc;');
+		if ($query->num_rows() > 0) {
+			return $query;
+		} else {
+			return false;
+		}
+	}
+}/*Fin clase */

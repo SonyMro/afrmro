@@ -28,127 +28,153 @@
 		</div>
 	</div>
 </div> -->
-<div class="container">
-	<div class="row">
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Buzón.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
+<?php // print_r($this->session->userdata);
+//echo $this->session->userdata("logueado");
+if ($this->session->userdata("logueado")) {
+
+	?>
+	<div class="container-fluid font">
+		<center>
+			<h1 class='text-white'> <b>
+					<font color='#f4d03f'>Menu</font>
+				</b>
+			</h1>
+		</center>
+		<div class="pb-5 pb-5">
+			<ul class="list-group list-group-horizontal-xl">
+				<li class="list-group-item list-group-item-primary" id="lId" value="<?php echo $this->session->userdata("id"); ?>"><?php echo $this->session->userdata("nombre"); ?></li>
+				<li class="list-group-item list-group-item-primary" value=><?php echo $this->session->userdata("pat"); ?></li>
+				<li class="list-group-item list-group-item-primary" value=><?php echo $this->session->userdata("mat"); ?></li>
+				<li class="list-group-item list-group-item-warning" id="lIdg" value="<?php echo $this->session->userdata("idg"); ?>"><?php echo $this->session->userdata("geren"); ?></li>
+				<li class="list-group-item list-group-item-success" id="lIdr" value="<?php echo $this->session->userdata("idR"); ?>"><?php echo $this->session->userdata("rol"); ?></li>
+			</ul>
 		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Categoría.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Comentarios Encuesta.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Encuesta.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Felicitaciones.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Gerencias.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Preguntas.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Premios.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Respuestas.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Sección.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>SubCategorias.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
-		</div>
-		<div class="p-3">
-			<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-					<h5>Gestionar <br></h5>
-					<h3>
-						<font color='#f4d03f'>Usuarios.</font>
-					</h3>
-				</strong>
-				<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-			</a>
+		<div class="row">
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllUser/result'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Ver <br></h5>
+						<h3>
+							<font color='#f4d03f'>Resultados.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/resultados.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Categoría.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Comentarios Encuesta.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Encuesta.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Felicitaciones.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Gerencias.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Preguntas.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Premios.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Respuestas.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Sección.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>SubCategorias.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
+			<div class="p-3">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar <br></h5>
+						<h3>
+							<font color='#f4d03f'>Usuarios.</font>
+						</h3>
+					</strong>
+					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+				</a>
+			</div>
 		</div>
 	</div>
-</div>
+<?php
+} else {
+	redirect(base_url('index.php/cllUser'));
+}
+?>
+<script type="text/javascript" src="<?php echo base_url(); ?>scripsJS/menu.js"></script>

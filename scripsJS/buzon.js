@@ -153,8 +153,8 @@ function validarCorreo(correo) {
 
 function enviarDatos(){
 	Swal.fire(
-		'Good job!',
-		'You clicked the button!',
+		'Muy Bien!',
+		'Gracias por reportar!',
 		'success'
 	)
   }
