@@ -128,6 +128,7 @@ class cllUser extends CI_Controller
 	public function logout()
 	{		// destory session
 		$this->session->sess_destroy();
+		redirect(base_url('index.php/cllUser/login'));
 	}
 	public function result()
 	{

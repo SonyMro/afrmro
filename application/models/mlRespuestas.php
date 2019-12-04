@@ -30,18 +30,19 @@ class mlRespuestas extends CI_Model
 			log_message('error', $e->getMessage());
 		}
 	}
-	public function verResultados()
+	public function verResultados($idp,$desd,$hast)
 	{
-		$query = $this->db->query('SELECT DISTINCT(Respuesta),
+		$query = $this->db->query('
+SELECT DISTINCT(Respuesta),
 (SELECT count(Respuesta) 
 from respuestas WHERE Respuesta = r.Respuesta)  
 as cantidad
 from respuestas as r
-where Idpregunta=2 and (date(fecha) BETWEEN "2019-01-01" AND "2019-12-30") order by cantidad desc;');
+where Idpregunta='.$idp.' and (date(fecha) BETWEEN "'.$desd.'" AND "'.$hast.'") order by cantidad desc;');
 		if ($query->num_rows() > 0) {
-			return $query;
+			return $query->result();
 		} else {
-			return false;
+			return null;
 		}
 	}
 }/*Fin clase */

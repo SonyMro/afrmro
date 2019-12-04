@@ -31,6 +31,23 @@ class cllRespuestas extends CI_Controller
 		}
 
 	}
-	
-
+	public function resultados()
+	{
+		$dat= array(
+		"idp"=> $this->input->get('idp'),
+		"desde"=> $this->input->get('desde'),
+	"hasta"=> $this->input->get('hasta'));
+	//print_r($dat);
+	//echo($dat['desde']);
+		//echo 'id'.$idp.' desde '.$desde.' hasta '.$hasta;
+		header("Content-Type: application/json");	
+		$resultados=$this->mlRespuestas->verResultados($dat['idp'], $dat['desde'], $dat['hasta']);
+		if ($resultados!=null) {
+			$data['status']='ok';
+			$data['result']=$resultados;
+			echo json_encode($data);
+		} else {
+			echo '{"status":"err","result":"null"}';
+		}/**/
+	}
 }

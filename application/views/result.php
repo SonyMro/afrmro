@@ -3,6 +3,11 @@
 		font-family: 'Roboto', sans-serif;
 		font-size: 18px;
 	}
+
+	.anyClass {
+		height: 500px;
+		overflow-y: scroll;
+	}
 </style>
 <div class="container-fluid font">
 
@@ -27,12 +32,12 @@
 				<div class="card-header bg-dark text-white">
 					<b>Lista de preguntas<b>
 				</div>
-				<div class="list-group" id="divpre">
+				<div class="anyClass">
+					<div class="list-group " id="divpre">
 
-					<li class="btn btn-outline-dark">EL SERVICIO EDUCATIVO ESTÁ EJECUTANDO O EJECUTARA EN LA CURRICULA</li>
-					<li class="btn btn-outline-dark">EL SERVICIO EDUCATIVO O EJECUTARA EN LA CURRICULA</li>
-
+					</div>
 				</div>
+
 			</div>
 		</div>
 		<div class="col-sm-10 col-md-9 col-lg-8">
@@ -53,11 +58,11 @@
 			</div>
 			<center>
 				<div class="pb-3">
-					<Button id="btnResultados" class='btn btn-success'>Ver Resultados</Button>
+					<Button id="btnResultados" class='btn btn-success' onclick="verResultPregunta();">Ver Resultados</Button>
 				</div>
 			</center>
 			<div class="card " style="width: 800px;">
-				<div class="card-header bg-dark text-white">
+				<div class="card-header bg-dark text-white" id="cpreg">
 					Pregunta
 				</div>
 				<div class="card-body">
@@ -65,14 +70,44 @@
 
 					</canvas>
 				</div>
-				<div class="card-footer text-muted">
-					<div class="row">
-						<div class="col"><button onclick=" Graficar('bar')" class="btn btn-info">Barra</button></div>
-						<div class="col"><button onclick=" Graficar('line')" class="btn btn-success">Lineal</button></div>
-						<div class="col"><button onclick=" Graficar('pie')" class="btn btn-primary">Pastel</button></div>
+				<div class="card-footer text-muted  bg-dark text-white">
+					<br>
+				</div>
+			</div> <br />
+			<div class="card " style="width: 800px;">
+				<div class="card-header bg-dark text-white" id="cpreg">
+					Comentarios
+				</div>
+				<div class="card-body">
+					<div class="anyClass">
+						<div id="divdocument">
+
+						</div>
 					</div>
 				</div>
-
+				<div class="card-footer text-muted  bg-dark text-white">
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modComentario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
 			</div>
 		</div>
 	</div>
