@@ -125,6 +125,13 @@ class cllUser extends CI_Controller
 			log_message('error', $e->getMessage());
 		}
 	}
+	public function menu2()
+	{
+		$Navbar['verNav'] = true;
+		$this->load->view('../views/complementos/header', $Navbar);
+		$this->load->view('menu');
+		$this->load->view('../views/complementos/footer');
+	}
 	public function logout()
 	{		// destory session
 		$this->session->sess_destroy();

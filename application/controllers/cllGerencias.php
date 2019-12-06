@@ -13,7 +13,8 @@ class cllGerencias extends CI_Controller {
 	public function index(){
 		$datos['datos'] = $this->mlGerencias->listarGerencias();
 		if ($datos !=null) {
-			$this->load->view('../views/complementos/header');
+			$Navbar['verNav'] = true;
+			$this->load->view('../views/complementos/header', $Navbar);
 			$this->load->view('Gerencias',$datos);
 			$this->load->view('../views/complementos/footer');
 		} else {

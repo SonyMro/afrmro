@@ -64,30 +64,20 @@ if ($this->session->userdata("logueado")) {
 				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 						<h5>Gestionar <br></h5>
 						<h3>
-							<font color='#f4d03f'>Categoría.</font>
+							<font color='#f4d03f'>Preguntas</font>
 						</h3>
 					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+					<img src="<?php echo base_url() ?>image/preg.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
 				</a>
 			</div>
 			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllGerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 						<h5>Gestionar <br></h5>
 						<h3>
-							<font color='#f4d03f'>Comentarios Encuesta.</font>
+							<font color='#f4d03f'>Gerencias</font>
 						</h3>
 					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-				</a>
-			</div>
-			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-						<h5>Gestionar <br></h5>
-						<h3>
-							<font color='#f4d03f'>Encuesta.</font>
-						</h3>
-					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+					<img src="<?php echo base_url() ?>image/geren.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
 				</a>
 			</div>
 			<div class="p-3">
@@ -97,31 +87,21 @@ if ($this->session->userdata("logueado")) {
 							<font color='#f4d03f'>Felicitaciones.</font>
 						</h3>
 					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+					<img src="<?php echo base_url() ?>image/felicidad.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
 				</a>
 			</div>
 			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/allBuzon'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 						<h5>Gestionar <br></h5>
 						<h3>
-							<font color='#f4d03f'>Gerencias.</font>
+							<font color='#f4d03f'>Buzón de quejas y sugerencias.</font>
 						</h3>
 					</strong>
 					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
 				</a>
 			</div>
 			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-						<h5>Gestionar <br></h5>
-						<h3>
-							<font color='#f4d03f'>Preguntas.</font>
-						</h3>
-					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-				</a>
-			</div>
-			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllPremios'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 						<h5>Gestionar <br></h5>
 						<h3>
 							<font color='#f4d03f'>Premios.</font>
@@ -131,10 +111,10 @@ if ($this->session->userdata("logueado")) {
 				</a>
 			</div>
 			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllUser'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 						<h5>Gestionar <br></h5>
 						<h3>
-							<font color='#f4d03f'>Respuestas.</font>
+							<font color='#f4d03f'>Usuario</font>
 						</h3>
 					</strong>
 					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
@@ -142,29 +122,9 @@ if ($this->session->userdata("logueado")) {
 			</div>
 			<div class="p-3">
 				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-						<h5>Gestionar <br></h5>
+						<h5><br></h5>
 						<h3>
-							<font color='#f4d03f'>Sección.</font>
-						</h3>
-					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-				</a>
-			</div>
-			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-						<h5>Gestionar <br></h5>
-						<h3>
-							<font color='#f4d03f'>SubCategorias.</font>
-						</h3>
-					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
-				</a>
-			</div>
-			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-						<h5>Gestionar <br></h5>
-						<h3>
-							<font color='#f4d03f'>Usuarios.</font>
+							<font color='#f4d03f'>Cambiar Premios</font>
 						</h3>
 					</strong>
 					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
@@ -174,7 +134,12 @@ if ($this->session->userdata("logueado")) {
 	</div>
 <?php
 } else {
-	redirect(base_url('index.php/cllUser'));
+echo "Swal.fire({
+  icon: 'error',
+  title: 'Uups...',
+  text: 'No has iniciado sesión o no tienes acceso contacta al administrador. !'
+});";
+	redirect(base_url('index.php/cllUser/login'));
 }
 ?>
 <script type="text/javascript" src="<?php echo base_url(); ?>scripsJS/menu.js"></script>

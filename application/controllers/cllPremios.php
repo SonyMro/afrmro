@@ -15,11 +15,13 @@ class cllPremios extends CI_Controller {
 	public function index(){
 		$datos['datos'] = $this->mlPremios->listar();
 		if ($datos !=null) {
-			$this->load->view('../views/complementos/header');
+			$Navbar['verNav'] = true;
+			$this->load->view('../views/complementos/header', $Navbar);
 			$this->load->view('Premios',$datos);
 			$this->load->view('../views/complementos/footer');
 		} else {
-			$this->load->view('../views/complementos/header');
+			$Navbar['verNav'] = true;
+			$this->load->view('../views/complementos/header', $Navbar);
 			$this->load->view('Premios');
 			$this->load->view('../views/complementos/footer');
 		}
