@@ -1,10 +1,10 @@
 <?php
+//Tec de Teziutlán 22 de octubre del 2019
 defined('BASEPATH') or exit('No direct script access allowed');
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
-class cllUser extends CI_Controller
+class cllUser extends CI_Controller//Se hace las operaciones de la tbl de usuarios
 {
-
 	function __construct()
 	{
 		parent::__construct();
@@ -13,24 +13,24 @@ class cllUser extends CI_Controller
 		$this->load->library('session');
 	}
 
-	public function index()
+	public function index()//El primer metodo que se ejecuta 
 	{
-		$datos['gerencias'] = $this->mlUser->listarGerencias();
-		$datos['roles'] = $this->mlUser->listarRoles();
-		$Navbar['verNav'] = true;
+		$datos['gerencias'] = $this->mlUser->listarGerencias();//Se enlistan todas las gerencias
+		$datos['roles'] = $this->mlUser->listarRoles();//Se enlistan todos los roles
+		$Navbar['verNav'] = true;//La variable para ver el navbar
 		$this->load->view('../views/complementos/header', $Navbar);
-		$this->load->view('Usuarios', $datos);
+		$this->load->view('Usuarios', $datos);// se carga el body con los parametros gerencia y de roles
 		$this->load->view('../views/complementos/footer');
 	}
-	public function login()
+	public function login()// El inicio de secion 
 	{
 	//	$this->session->sess_destroy();
 		$Navbar['verNav'] = true;
 		$this->load->view('../views/complementos/header', $Navbar);
-		$this->load->view('user');
+		$this->load->view('user');//carga a vista del usuario
 		$this->load->view('../views/complementos/footer');
 	}
-	public function registrarUser()
+	public function registrarUser()//Registra el usuario
 	{
 		$data = array(
 			'Nombre'  => $this->input->post('txtNombre'),
@@ -40,10 +40,9 @@ class cllUser extends CI_Controller
 			'pass'  => $this->input->post('txtPass'),
 			'idGerencia'  => $this->input->post('slgerencias'),
 			'idRol'  => $this->input->post('slRol')
-
-		);
-		$verificar = $this->mlUser->insertar($data);
-		if ($verificar) {
+		);//Se recuperan los datos del form
+		$verificar = $this->mlUser->insertar($data);//Se alamacena en la base de datos 
+		if ($verificar) {// si el insert de ejecuta con exito se carga la vista de registrar usuarios
 			redirect(base_url('index.php/cllUser'));
 		} else {
 			redirect(base_url('index.php/cllUser'));
@@ -52,13 +51,13 @@ class cllUser extends CI_Controller
 		//$this->mlPremios->insert($data);
 	}
 
-	public function show()
+	public function show()// Se muestran todos los usuarios
 	{
 		header("Content-Type: application/json");
-		$datos = $this->mlUser->listarUsuarios()->result();
-		echo json_encode($datos);
+		$datos = $this->mlUser->listarUsuarios()->result();// se en listan todos los usuarios
+		echo json_encode($datos);//Se imprimen en la vista de Usuarios
 	}
-	public function EditUser()
+	public function EditUser()// Edita a un usuario
 	{
 		$parametros = array(
 			"Nombre" => $this->input->post('MtxtNombre'),
@@ -67,26 +66,24 @@ class cllUser extends CI_Controller
 			"mail" => $this->input->post('MtxtMail'),
 			"idGerencia" => $this->input->post('Mslgerencias'),
 			"idRol" => $this->input->post('MslRol')
-		);
-		$idUser = $this->input->post('MtxtId');
-		$verificar = $this->mlUser->update($idUser, $parametros);
-		if ($verificar === true) {
+		);//Se recuperan la infomarcion enviada en la base de datos
+		$idUser = $this->input->post('MtxtId');//Se obtiene el id del usuario 
+		$verificar = $this->mlUser->update($idUser, $parametros);//Se actualiza la informacion del usuario 
+		if ($verificar === true) {//Si la actualizacion se ejecuto correctamente muestra la vista del usuario
 			redirect(base_url('index.php/cllUser'));
-		} else {
+		} else {//Si no es asi manda un error
 			echo '<div class="alert alert-danger" role="alert">
 							Error Verifique que los datos sean correctos.
 							</div>';
 			redirect(base_url('index.php/cllUser'));
 		}
 	}
-	public function menu()
+	public function menu()// Este es el menu
 	{
-		$mail = $this->input->post('txtCorreo');
-		$pw = $this->input->post('txtPass');
-		$ver = $this->mlUser->usuario($mail, $pw);
-		//	print_r($ver);
-		/*	*/
-		if ($ver != false) {
+		$mail = $this->input->post('txtCorreo');//Se obtine el correo del usuario que inicio secion
+		$pw = $this->input->post('txtPass');//Se obtine la contraseña del usuario
+		$ver = $this->mlUser->usuario($mail, $pw);//Se consulta que el usuario exista en la base de datos
+		if ($ver != false) {//Si existe el usuario existe de manda su informacion al menu
 /*	*/		$usuario_data = array(
 				'id' => $ver->IdUsuario,
 				'nombre' => $ver->usernom,
@@ -104,40 +101,40 @@ class cllUser extends CI_Controller
 			$this->load->view('../views/complementos/header', $Navbar);
 			$this->load->view('menu');
 			$this->load->view('../views/complementos/footer');
-		} else {
+		} else {//Si no es no lo dejara entrar
 			redirect(base_url('index.php/cllUser/login'));
 		 }
 	}
 	/*Ajax */
-	public function buscarPass()
+	public function buscarPass()//Verifica que el usuario sea valido
 	{
 		header("Content-Type: application/json");
-		$mail = $this->input->post('mail');
-		$pw = $this->input->post('pass');
+		$mail = $this->input->post('mail');//Obtiene el correo del usuario
+		$pw = $this->input->post('pass');//Obtiene la contraseña del usuario
 		try {
-			$ver = $this->mlUser->validarPass($mail, $pw);
-			if ($ver) {
+			$ver = $this->mlUser->validarPass($mail, $pw);//Verifica que el usuario exista en la base de datos
+			if ($ver) {//Si el usuario existe manda ok a la vista
 				echo '{"status":"ok"}';
-			} else {
+			} else {// Si no es asi manda un error a la vista
 				echo '{"status":"err"}';
 			}
 		} catch (Exception $e) {
 			log_message('error', $e->getMessage());
 		}
 	}
-	public function menu2()
+	public function menu2()//Se carga otras ves el menu para evitar errores
 	{
 		$Navbar['verNav'] = true;
-		$this->load->view('../views/complementos/header', $Navbar);
-		$this->load->view('menu');
-		$this->load->view('../views/complementos/footer');
+		$this->load->view('../views/complementos/header', $Navbar);//Se carga el header
+		$this->load->view('menu');//Se carga el body
+		$this->load->view('../views/complementos/footer');//Se carga el pie de pagina
 	}
-	public function logout()
+	public function logout()//Destruye las seciones activas
 	{		// destory session
-		$this->session->sess_destroy();
-		redirect(base_url('index.php/cllUser/login'));
+		$this->session->sess_destroy();//Se encargar de eliminar las variables de secion
+		redirect(base_url('index.php/cllUser/login'));//Redireciona al login
 	}
-	public function result()
+	public function result()//Carga la vista de los resultados
 	{
 		$Navbar['verNav'] = true;
 		$this->load->view('../views/complementos/header', $Navbar);

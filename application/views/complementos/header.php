@@ -57,7 +57,7 @@
 				</div>
 			<?php
 			} else {
-				//echo 'false';
+				echo '&#x1F99D;';
 			}
 			?>
 		</div>

@@ -1,24 +1,8 @@
 <?php
+//Tec de Teziutlán 22 de octubre del 2019
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class cllPreguntas extends CI_Controller {
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-
-	
+class cllPreguntas extends CI_Controller {//Es esta fucnion se ejecutan las operaiones de la tbl de preguntas
+		
 	 function __construct()
 	{
 		parent::__construct();
@@ -27,12 +11,12 @@ class cllPreguntas extends CI_Controller {
 		$this->load->model('mlPreguntas');
 		$this->load->library('session'); 	
 	}
-	public function cargarPreguntas(){
-	$this->load->view('../views/complementos/header');
-	$datos['preguntas'] = $this->mlPreguntas->getPreguntas();
+	public function cargarPreguntas(){//En esta funcion de enlistan todas las preguntas 
+	$this->load->view('../views/complementos/header');// se carga el encabezado
+	$datos['preguntas'] = $this->mlPreguntas->getPreguntas();// se enlistan todas las preguntas y elmacena en este arreglo 
 	//$datos['datos2'] = $this->mlPreguntas->getDatosMicriosip();
-	$this->load->view('encuesta', $datos);
-	$this->load->view('../views/complementos/footer');
+	$this->load->view('encuesta', $datos);//Se carga la vista de encuesta y se le pasan los datos
+	$this->load->view('../views/complementos/footer');// Se carga el pie de pagina
 	}
 	public function BuscarNumeroReservacion()
 	{
@@ -42,17 +26,17 @@ class cllPreguntas extends CI_Controller {
 		);
 		
 	}
-	public function obtenerPreguntas()
+	public function obtenerPreguntas()//Esta funcion carga la lista de preguntas dependiendo de los servicios de los clientes
 	{
-		$in = $this->session->flashdata('in');
-		$idEncuesta = $this->session->flashdata('idEnc');
+		$in = $this->session->flashdata('in');// se obtiene la lista de los servicios
+		$idEncuesta = $this->session->flashdata('idEnc');// se obtine el id de los datos del encuestado
 		$Navbar['verNav'] = false;
 		$this->load->view('../views/complementos/header', $Navbar);
-		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas($in);
-		$datos['secciones'] = $this->mlPreguntas->Seciones();
-		$datos['idEncuesta'] = $idEncuesta;
-		$this->load->view('encuesta', $datos);
-		$this->load->view('../views/complementos/footer');
+		$datos['preguntas'] = $this->mlPreguntas->ObternerPreguntas($in);//Se hace una consulta para obtner las preguntas
+		$datos['secciones'] = $this->mlPreguntas->Seciones();//Se carga la tabla de secciones
+		$datos['idEncuesta'] = $idEncuesta;//Se optine el id de le encuesta
+		$this->load->view('encuesta', $datos);//Se de pasan los datos y se cargar le vista de encuestas
+		$this->load->view('../views/complementos/footer');//Se carga el pie de pagina
 		// destroy session
 		$this->session->sess_destroy();
 	}

@@ -1,9 +1,11 @@
+<!--Tec de Teziutlán 22 de octubre del 2019-->
 <style>
 	.font {
-		font-family: 'Luckiest Guy', cursive;
-		font-size: 12px;
+		font-family: 'Luckiest Guy', cursive;/*Esta fuente es de google fonts */
+		font-size:12px;/*Tamaño de la fuente*/
 	}
 </style>
+<!--En esta vista se muestra la vista princiapla en la que el cliente interactua con las quejas y sugerencias, con la encuesta y con las felicitaciones-->
 <div class="container-fluid font">
 	<br />
 	<center>
@@ -15,7 +17,7 @@
 		</h3>
 
 	</center> <br> <br> <br>
-	<div class="row p-2">
+	<div class="row p-2"><!--la clase row es para dividir la pantalla en columnas-->
 		<div class="col p-3 salto" id="salto1">
 			<a href="<?php echo base_url('/index.php/home/fel'); ?>" class="btn btn-success" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 					<h4> ¿Quieres</h4>
@@ -48,40 +50,7 @@
 			</a>
 		</div>
 	</div>
-	<!-- 
-	<div class="row">
-		<div class="col-md-4">
-			<div class="card text-white bg-dark" style="width: 18rem;">
-				<div class="card-header">
-					<br>
-				</div>
-				<img src="<?php echo base_url() ?>image/africam.png" width="150px" height="150px" class="card-img-top">
-				<div class="card-body">
-					<h5 class="card-title">Opciones</h5>
-					<div class="list-group">
-						<a type="button" class="btn btn-secondary" href="<?php echo base_url('/index.php/home/fel'); ?>">
-							<h5><strong>Felicitaciones ►</strong></h5>
-						</a> <br>
-						<a type="button" href="<?php echo base_url('/index.php/home/QuejasSugerencias') ?>" class="btn btn-secondary">
-							<h5><strong>Quejas y/o Sugerencias ►</strong></h5>
-						</a>
-					</div>
-				</div>
-				<div class="card-footer text-muted">
-					<br>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-8 pl-5">
 
-			<h1 class="text-light">
-				<a href="" class="text-light">
-					<font size="200px">¿Qué tal tu visita explorador? <br> Ayúdanos a ser mejores.</font>
-				</a>
-			</h1>
-
-		</div>
-	</div>-->
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -92,7 +61,7 @@
 			//opacidadTitulo();
 		}, 3000);
 	});
-	
+
 
 	function menos() {
 		//	$(".salto").append("<br>");

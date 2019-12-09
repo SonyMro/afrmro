@@ -2,6 +2,12 @@
 
 	<div class="row">
 		<div class="col-sm-12 col-md-12 col-lg-12">
+			<center>
+				<h1 class='text-white'> <b>
+						<font color='#f4d03f'>Lista de Quejas y Sugerencias</font>
+					</b>
+				</h1>
+			</center><br>
 			<?php // print_r($buzon);
 			foreach ($buzon as $b) {
 				?>

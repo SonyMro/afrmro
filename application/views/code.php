@@ -39,14 +39,12 @@
 			<center>
 				<div class="row">
 					<div class="col p-2">
-						<button class="btn btn-info" onclick="allcode();">Ver todos</button>
-					</div>
-					<div class="col p-2">
 						<button class="btn btn-success" onclick=" disponibles()">Ver Disponibles</button>
 					</div>
+					<div class="col p-2">
+						<button class="btn btn-info" onclick="allcode();">Ver todos</button>
+					</div>
 				</div>
-
-
 			</center>
 			<table class="table table-hover table-sm">
 				<thead class="thead-dark">
@@ -165,13 +163,24 @@
 				console.log(response.result);
 				/**/
 				if (response.status == 'ok') {
-					tabla += '<tr class="alert-danger">' +
-						'<td>' + response.result[0].IdCodigo + '</td>' +
-						'<td>' + response.result[0].Nombre + '</td>' +
-						'<td>' + response.result[0].codigo + '</td>' +
-						'<td>' + response.result[0].intercambio + '</td>' +
-						'<td> <img src="' + response.result[0].foto + '" alt="" width="100" height="100">' + '</img></td>' +
-						'</tr>';
+					if (response.result[0].intercambio == 'no') {
+						tabla += '<tr class="alert-success">' +
+							'<td>' + response.result[0].IdCodigo + '</td>' +
+							'<td>' + response.result[0].Nombre + '</td>' +
+							'<td>' + response.result[0].codigo + '</td>' +
+							'<td>' + response.result[0].intercambio + '</td>' +
+							'<td> <img src="' + response.result[0].foto + '" alt="" width="100" height="100">' + '</img></td>' +
+							'</tr>';
+					} else {
+						tabla += '<tr class="alert-danger">' +
+							'<td>' + response.result[0].IdCodigo + '</td>' +
+							'<td>' + response.result[0].Nombre + '</td>' +
+							'<td>' + response.result[0].codigo + '</td>' +
+							'<td>' + response.result[0].intercambio + '</td>' +
+							'<td> <img src="' + response.result[0].foto + '" alt="" width="100" height="100">' + '</img></td>' +
+							'</tr>';
+					}
+
 					$('#vmname').text(response.result[0].Nombre);
 					$('#txtID').val(response.result[0].IdCodigo);
 					$("#imgvm").attr("src", response.result[0].foto);

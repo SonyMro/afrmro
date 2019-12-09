@@ -107,34 +107,34 @@ if ($this->session->userdata("logueado")) {
 							<font color='#f4d03f'>Premios.</font>
 						</h3>
 					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+					<img src="<?php echo base_url() ?>image/auto.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
 				</a>
 			</div>
 			<div class="p-3">
 				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllUser'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-						<h5>Gestionar <br></h5>
+						<h5>Gestionar <h5></h5>
 						<h3>
 							<font color='#f4d03f'>Usuario</font>
 						</h3>
 					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+					<img src="<?php echo base_url() ?>image/login.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
 				</a>
 			</div>
 			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
-						<h5><br></h5>
+				<a class="btn btn-success" href="<?php echo base_url('index.php/cllBuzon/allClaves'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+						<h5>Gestionar</h5>
 						<h3>
-							<font color='#f4d03f'>Cambiar Premios</font>
+							<font color='#f4d03f'>Palabras clave</font>
 						</h3>
 					</strong>
-					<img src="<?php echo base_url() ?>image/buzon.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
+					<img src="<?php echo base_url() ?>image/clave.png" width="100" height="100" alt="https://www.flaticon.es/autores/nhor-phai">
 				</a>
 			</div>
 		</div>
 	</div>
 <?php
 } else {
-echo "Swal.fire({
+	echo "Swal.fire({ 
   icon: 'error',
   title: 'Uups...',
   text: 'No has iniciado sesión o no tienes acceso contacta al administrador. !'

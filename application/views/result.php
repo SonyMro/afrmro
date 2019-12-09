@@ -54,7 +54,6 @@
 						<input id="txtHasta" type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
 					</div>
 				</div> <br>
-
 			</div>
 			<center>
 				<div class="pb-3">

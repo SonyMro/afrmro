@@ -1,5 +1,6 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+//Tec de Teziutlán 22 de octubre del 2019
+defined('BASEPATH') OR exit('No direct script access allowed');//Esto nunca se deve barrar son dependencias que necesita el proyecto
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 class cllPremios extends CI_Controller {
@@ -12,14 +13,14 @@ class cllPremios extends CI_Controller {
 		$this->load->library('session'); 
 		$this->load->database();	
 	}
-	public function index(){
-		$datos['datos'] = $this->mlPremios->listar();
-		if ($datos !=null) {
+	public function index(){//El primer metodo que se ejecuta en esta clase
+		$datos['datos'] = $this->mlPremios->listar();// se enlista todos los premios registrados
+		if ($datos !=null) {//Se valida que exista por los menos un premios 
 			$Navbar['verNav'] = true;
 			$this->load->view('../views/complementos/header', $Navbar);
-			$this->load->view('Premios',$datos);
+			$this->load->view('Premios',$datos);// se carga el body con todos los premios
 			$this->load->view('../views/complementos/footer');
-		} else {
+		} else {//De no ser asi se solo se carga la vista sin parametros
 			$Navbar['verNav'] = true;
 			$this->load->view('../views/complementos/header', $Navbar);
 			$this->load->view('Premios');
@@ -32,59 +33,59 @@ class cllPremios extends CI_Controller {
 		$datos= $this->mlPremios->listar()->result();
 		echo json_encode($datos);
 	}
-	public function edit($id)
+	public function edit($id)//Edita un premio
 	{	header("Content-Type: application/json");
-		$datos = $this->mlPremios->editM($id)-> result();
-		if ($datos==false) {
-			$data = '{"result": false}';
-				echo $data;
+		$datos = $this->mlPremios->editM($id)-> result();//hace la consulta a la base de datos
+		if ($datos==false) {// si este premio no existe 
+			$data = '{"result": false}';// manda un error
+				echo $data;//imPrime el error
 		} else {
-			echo json_encode($datos);
+			echo json_encode($datos);//manda el premio
 		}
 	}
-	public function save()
+	public function save()// almacena los premioss
 	{
 		$data = array(
 			'Nombre'  => $this->input->post('Nombre'),
 			'foto'  => $this->input->post('img'),
 			'Descripcion'  => $this->input->post('des')
-		);
- $this->mlPremios->insert($data);
+		);//obtiene los datos del form 
+ $this->mlPremios->insert($data);// inserta el premio en la base de datos
 
 	}
-	public function code(){
+	public function code(){//Almacena el codigo del premio en la base de datos
 		$data = array(
 			'Idpremio'  => $this->input->post('IdPremio'),
 			'codigo'  => $this->input->post('code')
-		);
-		$ver=$this->mlPremios->registrarCode($data);
-		if ($ver) {
+		);// Obtiene los datos del codigo 
+		$ver=$this->mlPremios->registrarCode($data); //El codigo se almacena en la base de datos 
+		if ($ver) {//si la trasaccion se ejecuto con exito imprime un si
 			echo 'Si';
 		} else {
 			echo 'No';
 		}
 		
 	}
-	public function eliminar($idp){
-		$parametros = array("IdPremio" => $idp);		
-	$verificar=	$this->mlPremios->detele($parametros);
-	if ($verificar) {
+	public function eliminar($idp){//Elimina los premios registrados
+		$parametros = array("IdPremio" => $idp);//Obtine el id del premio
+	$verificar=	$this->mlPremios->detele($parametros);// elimina de la base de datos el premio registrado
+	if ($verificar) {// si el premio se elimino se imprime un si 
 			echo 'Si';
 	} else {
 			echo 'No';
 	}
 	
 	}
-	public function modificar()
+	public function modificar()// modifica la infomarcion de los premios
 	{
-		$idusu = $this->input->post('Id');
+		$idusu = $this->input->post('Id');//Se optiene el id del premio
 			$data = array(
 				'Nombre'  => $this->input->post('Nombre'),
 				'foto'  => $this->input->post('img'),
 				'Descripcion'  => $this->input->post('des'),
 				'Stock'  => $this->input->post('Stock'),
-			);
-		$this->mlPremios->modificar($data, $idusu);
+			);//se obtienen los datos del form
+		$this->mlPremios->modificar($data, $idusu);//Se modifican la informacion del premio
 	}
 
 }

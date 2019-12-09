@@ -169,16 +169,71 @@ console.log('---------------------Comentarios--------------------------------');
 	getComent(coment)
 }
 function abierta(params) {
-console.log(params);
+	var coment=[];
+	for (let i = 0; i < params.length; i++) {
+		coment.push(params[i].Respuesta, params[i].cantidad);
+	}
+	//console.log(params);
+	getComent(coment);
 }
 function abiertalarga(params) {
-console.log(params);
+	var coment=[];
+	for (let i = 0; i < params.length; i++) {
+		coment.push(params[i].Respuesta, params[i].cantidad);
+	}
+	getComent(coment);
 }
 function sino(params) {
-console.log(params);
+	console.log(params);
+	var labels = [];
+	var data = [];
+	var coment = [];
+	for (let i = 0; i < params.length; i++) {
+		switch (params[i].Respuesta) {
+			case 'si':
+				labels.push(params[i].Respuesta);
+				data.push(params[i].cantidad);
+				break;
+			case 'no':
+				labels.push(params[i].Respuesta);
+				data.push(params[i].cantidad)
+				break;
+			default:
+				coment.push(params[i].Respuesta, params[i].cantidad);
+				break;
+		}
+	}
+	Graficar(labels, data);
+	getComent(coment);
 }
 function esperaba(params) {
-console.log(params);
+	console.log(params);
+	var labels = [];
+	var data = [];
+	var coment = [];
+	for (let i = 0; i < params.length; i++) {
+		///MEJOR DE LO QUE ESPERABA
+		switch (params[i].Respuesta) {
+			case 'MEJOR DE LO QUE ESPERABA':
+				labels.push(params[i].Respuesta);
+				data.push(params[i].cantidad);
+				break;
+			case 'TAL COMO LO ESPERABA.':
+				labels.push(params[i].Respuesta);
+				data.push(params[i].cantidad);
+				break;
+			case 'PEOR DE LO QUE ESPERABA.':
+				labels.push(params[i].Respuesta);
+				data.push(params[i].cantidad);
+				break;
+			default:
+				coment.push(params[i].Respuesta, params[i].cantidad);
+				break;
+		}
+
+	} Graficar(labels, data);
+	getComent(coment);
+
 }
 function getComent(params) {
 	$('#divdocument').empty();
