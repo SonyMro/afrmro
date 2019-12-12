@@ -1,28 +1,29 @@
 $(document).ready(function () {
-	var f = new Date();
+	var f = new Date();//Obtnemos un nueva fecha para el form
 	var fecha = f.getFullYear() + '-' + (f.getMonth() + 1) + "-" + f.getDate() + ' ' + f.getHours() + ':' + f.getMinutes() + ':' + f.getSeconds();
 	console.log(fecha);
-	$('#txtFecha').val(fecha);
+	$('#txtFecha').val(fecha);//le asifnamos el valor a l input 
 });
 /*Efectos */
-	setInterval(
+	setInterval(// creamos un timer el cual va a ejecutar una funcion asincrona para dar el efectos
 		function() {
-			apacidadMas();
-			apacidadMenos();
-		}, 4000);
+			apacidadMas();//aumenta la opacidad del componente
+			apacidadMenos();//Disminuyel la opacidad del componente
+		}, 4000);//Estas funciones se van a estar ejecutanda cada 4 segunndos
 
-	function apacidadMas() {
-		$('.brillo').animate({
-			'opacity': '0.05'
-		}, "slow");
+	function apacidadMas() {//disminuimos la opacidad del componente
+		$('.brillo').animate({// creamos una animacion para la clase brillo
+			'opacity': '0.05'//aumentamos a opacidad en un 5%
+		}, "slow");//el efecto que va a tener
 	}
-	function apacidadMenos() {
-		$('.brillo').animate({
-			'opacity': '1'
-		}, "slow");
+	function apacidadMenos() {//auemtamos la opacidad del componente
+		$('.brillo').animate({//creamos la animacion
+			'opacity': '1'// aumentamos la opacidad al 100%
+		}, "slow");//el efecto que va ha tener
 	}
-	function eliminarEfecto(id) {
+	function eliminarEfecto(id) {//Obtnermos el id del input y eliminamos el efecto
 		//console.log($(id).attr('id'));
+		//capturamos el efecto y eliminamos la clase
 		$("#"+$(id).attr('id')).removeClass('brillo2');
 	}
 //Etiqueta quejas y sugerencias
@@ -45,25 +46,26 @@ function apacidadMenos2() {
 }
 
 /* Validacion de campos */
-function validarCodigoPostal(cp) {
-	var id=$(cp).attr('id');
-	var iddiv='valCp';
-	var valor = cp.value;
+function validarCodigoPostal(cp) {// esta funcion valida el codigo postal
+	var id=$(cp).attr('id');//capturamos el id
+	var iddiv='valCp';//esta variable es para validar el input en esta se escrive id del div
+	var valor = cp.value;//obtenemos el valor del input
 	$('#txtCp').val();
+	//Si el valor no es vacio y el valor esta entre 1000 y 999999 entrara 
 	if (valor.length == 5 && parseInt(valor) >= 1000 && parseInt(valor) <= 99999) {
-		validarinputs(true,id,iddiv,'Muy Bien');
+		validarinputs(true,id,iddiv,'Muy Bien');//mandara un true el id del intup del div y un mensaje
 	}
-	else {
+	else {//Sino mandara un false el id del input y de div y un mensaje de error
 		validarinputs(false,id,iddiv,'ERROR, POR FAVOR INGRESE SU CÓDIGO POSTAL VALIDO');
 	}
 }
-function ValidarNombre(text) {
-	var id = $(text).attr('id');
-	var iddiv ='valNombre';
-	if (text.value === null || text.value.length >= 3 && text.value.length<=20) {
-		validarinputs(true, id, iddiv, 'Muy Bien');
+function ValidarNombre(text) {// En esta funcion solo vamos a validar el nombre
+	var id = $(text).attr('id');// obntnemos el id del input
+	var iddiv ='valNombre';//Capturamos el id del div del componente
+	if (text.value === null || text.value.length >= 3 && text.value.length<=20) {//Si el valor no esta vacio pasa este if
+		validarinputs(true, id, iddiv, 'Muy Bien');// llama la funcion validarinouts le pasa un true el id del input y el id del div y un mensaje
 	}
-	else {
+	else {//Si la condicion no se cumple llamamos la funcion pero con un error
 		validarinputs(false, id, iddiv, 'ERROR, POR FAVOR INGRESE UN NOMBRE QUE NO SUPERE LOS <b>20 CARACTERES</b>.');
 	}
 }
@@ -88,15 +90,21 @@ function validarEdad(edad) {
 		validarinputs(false, id, iddiv, 'ERROR, POR FAVOR INGRESE SU EDAD CORRECTA <b> (DEBE DE SER MAYOR A LOS 18 AÑOS)</b>.');
 	}
 }
-function validarinputs(bandera,idInp,iddiv,mens) {
+function validarinputs(bandera,idInp,iddiv,mens) {/*Esta funcion Es muy importante ya que con ella hacemos 
+	que los inputs manden un error */
 	console.log(bandera, idInp,iddiv);
-	$('#' + iddiv).empty();
-	if (bandera) {
+	$('#' + iddiv).empty();//Obtnemos el id del div 
+	if (bandera) {//Preguntamos si el componente es valido 
+		//Al input le removemos la clase invlida y se la cambiamos por valida
 		$("#" + idInp).removeClass('is-invalid').addClass('is-valid');
+		//Al div que se encuantra debajo del div le quitamos la clase invalida y le agregamos valido,
+		//Tambien agregamos un h6 en el cual mostraremos el mensaje que resivamos de las validaciones
 		$('#' + iddiv).removeClass('invalid-feedback').addClass('valid-feedback').append('<h6>'+mens+'</h6>');
-		
-	} else {
+		} else {//en caso de que la validacion se falsa
+		//Al input le quitamos la clase valida y le agregamos la clase invalida
 		$('#' + idInp).removeClass('is-valid').addClass('is-invalid');
+		//Al div que se encuantra debajo del div le quitamos la clase valida y le agregamos invalido,
+		//Tambien agregamos un h6 en el cual mostraremos el mensaje que resivamos de las validaciones
 		$('#' + iddiv).removeClass('valid-feedback').addClass('invalid-feedback').append('<h6>'+mens+'</h6>');
 	}
 }

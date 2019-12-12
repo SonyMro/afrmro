@@ -1,34 +1,35 @@
 $(document).ready(function () {  
-	listarPreguntas();
+	listarPreguntas();//cargamos las preguntas al card
 });
+//Obtenemos el canvas y le asignamos un contexto
 let miCanvas = document.getElementById('MiGrafica').getContext('2d');
 
-function Graficar(labels,data) {
+function Graficar(labels,data) {//Creamos un funcion para que grafique todas las preguntas
 
-	var chart = new Chart(miCanvas, {
-		type: 'bar',
-		data: {
-			labels:labels,
+	var chart = new Chart(miCanvas, {// Creamos una nueva instancia de la clase chart de la biblioteca ChartJS y le pasamos como parametro el canvas 
+		type: 'bar',//Selecinamos el tipo en este caso es de tipo barra
+		data: {// creamos el contenido 
+			labels:labels,//Asignamos las etiquetas
 			datasets: [
 				{
-					label: "Resultados",
-					backgroundColor: ["#808b96", "#E59866", "#82e0aa", "#7fb3d5", " #d98880"],
-					borderColor: "#f4d03f",
-					data: data,
+					label: "Resultados",//Ponemos una leyenda
+					backgroundColor: ["#808b96", "#E59866", "#82e0aa", "#7fb3d5", " #d98880"],//Creamos 5 colores para cada barra
+					borderColor: "#f4d03f",//Creamos un borde para las barras
+					data: data,//Pasamos las cantidades
 				}
 			]
 		},
 		options: {
 			scales: {
-				xAxes:
+				xAxes://Eje x
 					[{
 						ticks:
-							{ fontSize: 14 }
+							{ fontSize: 14 }//aumentamos la fuente 
 					}],
-				yAxes:
+				yAxes://Eje y
 					[{
 						ticks:
-							{ fontSize: 14 }
+							{ fontSize: 14 }//aumentamos la fuente 
 					}]
 			}
 		}
@@ -36,21 +37,20 @@ function Graficar(labels,data) {
 
 }
 
-function listarPreguntas() {
-	var base_url = window.location.origin;
-	var idG = $("#lIdg").val();
-	var idU = $("#lId").val();
-	$("#divpre").empty();
-
+function listarPreguntas() {//Obtenemos las lista de preguntas de la base de datos
+	var base_url = window.location.origin;//Capturamos la ip y el puerto de la pagina 
+	var idG = $("#lIdg").val();//obtnermos el valor del id de gerencia
+	var idU = $("#lId").val();//obtnermos el valor del id del Usuario
+	$("#divpre").empty();//Limpiamos el div de las preguntas
 	//console.log(idG);
 	$.ajax({
-		url: base_url + '/sc/index.php/cllPreguntas/buscarPreguntas',
-		type: 'POST',
-		data: { idg: idG,idr:idU},
-		success: function (response) {
-			if (response.status=='ok') {
+		url: base_url + '/sc/index.php/cllPreguntas/buscarPreguntas',//realizamos la peticion Ajax
+		type: 'POST', // la peticion es por post 
+		data: { idg: idG,idr:idU},//Le enviamos el id de la gerencia y el id del usuario
+		success: function (response) {//Si es la peticion es un exito retorna la lista de preguntas que tiene que ver ese usuario
+			if (response.status=='ok') {//Verificamos que la respuesta se exitosa
 				console.log(response.result.length);
-				for (let i = 0; i < response.result.length; i++) {
+				for (let i = 0; i < response.result.length; i++) {/*Recorremos todas las preguntas y creamos nuestra lista de preguntas*/
 					$('#divpre').append('<li class="btn btn-outline-dark" id="' + response.result[i].IdPregunta +'" onclick="getPregunt(this)" value="'+
 						response.result[i].tipo + '">' + response.result[i].IdPregunta + '. ' + response.result[i].Pregunta 
 						+ '<input id="txtP' + response.result[i].IdPregunta + '" style="display: none;" value="' + response.result[i].tipo+'"></li>');		
@@ -62,54 +62,56 @@ function listarPreguntas() {
 		}
 	});
 }
-function getPregunt(eval) {
-	$('#cpreg').empty();
-	 $("#txtDesde").val('');
-	 $("#txtHasta").val('');
-	var id = $(eval).attr('id');
-	var preg = $('#' + id).text();
-	var idinput = $('#txtP'+id).val();
-	miCanvas.clearRect(0, 0, miCanvas.width, miCanvas.height);
-	$('#cpreg').append('<h3>' + preg + 
+function getPregunt(eval) {/*Obtenemos la informacion de la pregunta*/
+	$('#cpreg').empty();//limpiamos el titulo del card de la grafica
+	 $("#txtDesde").val('');//limpiamos el input de la fecha desde 
+	 $("#txtHasta").val('');//limpiamos el input de la fecha hasta
+	var id = $(eval).attr('id');//Obtnemos el id de la pregunta
+	var preg = $('#' + id).text();//obtenemos el texto de la pregunta
+	var idinput = $('#txtP'+id).val();//obtenemos el valor de la pregunta
+	miCanvas.clearRect(0, 0, miCanvas.width, miCanvas.height);//limpiamos el area del canvas 
+	$('#cpreg').append('<h3>' + preg + // en el titulo del colocamos la pregunta y creamos un input invisiable el cual nos ayudara para asignarle el valor de la pregunta 
 		'</h3><input id="Idpregunt" style="display: none;" value="' + id +'"><input id="txtPcard" style="display: none;" value="' + idinput +'">');
+		// de crean dos inputs invisibles una es para seber el tipo de pregunta y el otro es para obtener el id de la pregunta
 }
-function verResultPregunta() {
+function verResultPregunta() {//Esta funcion la utilizaremos para recuperar los  resultados de la pregunta
 	console.log('vamos');
-	var id = $("#Idpregunt").val();
-	var desde=$("#txtDesde").val();
-	var hasta=$("#txtHasta").val();
-	var tipo = $("#txtPcard").val();
-	var base_url = window.location.origin;
+	var id = $("#Idpregunt").val();// se obtiene el valor del input invisible del id
+	var desde=$("#txtDesde").val();// se obtiene el valor del input  desde
+	var hasta=$("#txtHasta").val();// se obtiene el valor del input hasta
+	var tipo = $("#txtPcard").val();// se obtiene el valor del input invisible tipo
+	var base_url = window.location.origin;// Obtenemos la ip y el puerto 
 	console.log(id+' '+desde+' '+hasta+' '+tipo);
 /**/
-	if (id.length>0 && desde.length>0 &&hasta.length>0) {
-		$.ajax({
-			type: "GET",
+	if (id.length>0 && desde.length>0 &&hasta.length>0) {//verificamos que los inputs no este vacios
+		$.ajax({//Hacemos la peticion ajax
+			type: "GET",//En este caso la peticion va a ser de tipo get y le pasamos el id de la pregunta desde cuando y hasta cuando
 			url: base_url + '/sc/index.php/cllRespuestas/resultados?idp='+id+'&desde='+desde+'&hasta='+hasta,		
-			success: function (response) {
+			success: function (response) {//Si peticion es un exito
 				console.log(response);
-				if (response.status=="ok") {
-					switch (tipo) {
+				if (response.status=="ok") {//verificamos que el servidor este respondiendo
+					switch (tipo) {//verificamos el tipo 
 						case "likert":
-							likert(response.result);
+							likert(response.result);//Apunta a la funcion likert
 							break;
 						case "abierta":
-							abierta(response.result);
+							abierta(response.result);//Apunta a la funcion abierta
 							break;
 						case "abiertalarga":
-							abiertalarga(response.result);
+							abiertalarga(response.result);//Apunta a la funcion abierta larga
 							break;
 						case "sino":
-							sino(response.result);
+							sino(response.result);//Apunta a la funcion sino
 							break;
 						case "esperaba":
-						esperaba(response.result);
+						esperaba(response.result);//Apunta a la funcion esperaba
 						break;
 						default:
+							//es cae en un erros es por que algun input esta vacio
 							alert('Verica que esta haciendo bien la consulta');
 							break;
 					}
-				} else {
+				} else {// si el servidor nos responde imprimira una alerta
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
@@ -119,7 +121,7 @@ function verResultPregunta() {
 			
 			}
 		});	/*Ajax */
-	} else {
+	} else {//si no se ha selecionado una pregunta muestra una alerta
 		Swal.fire({
 			icon: 'error',
 			title: 'Oops...',
@@ -129,59 +131,61 @@ function verResultPregunta() {
 	
 }
 function likert(params) {
-	var labels = [];
-	var data=[];
-	var coment=[];
+	var labels = [];// Declaramos un arreglo para las etiquetas de la grafica
+	var data=[];// Declaramos un arreglo para las cantidad de la grafica
+	var coment=[];// Declaramos un arreglo para los comnetaciones del card de comentarios
 //console.log(params);
 for (let i = 0; i < params.length; i++) {
-	switch (params[i].Respuesta) {
-		case '5':
-			labels.push(params[i].Respuesta);
-			data.push(parseInt(params[i].cantidad));
+	switch (params[i].Respuesta) {//verica la respuesta
+		case '5'://si la respuesta es 5
+			labels.push(params[i].Respuesta);//almacena el arreglo el elemento de la posicion i
+			data.push(parseInt(params[i].cantidad));//almacena el arreglo el elemento de la posicion i
 		break;
-		case '4':
-			labels.push(params[i].Respuesta);
-			data.push(parseInt(params[i].cantidad));
+		case '4'://si la respuesta es 4
+			labels.push(params[i].Respuesta);//almacena el arreglo el elemento de la posicion i
+			data.push(parseInt(params[i].cantidad));//almacena el arreglo el elemento de la posicion i
 			break;
-		case '3':
-			labels.push(params[i].Respuesta);
-			data.push(parseInt(params[i].cantidad));
+		case '3'://si la respuesta es 3
+			labels.push(params[i].Respuesta);//alamanena el arreglo el elemento de la posicion i
+			data.push(parseInt(params[i].cantidad));//almacena el arreglo el elemento de la posicion i
 		break;
-		case '2':
-			labels.push(params[i].Respuesta);
-			data.push(parseInt(params[i].cantidad));
+		case '2'://si la respuesta es 2
+			labels.push(params[i].Respuesta);//alamanena el arreglo el elemento de la posicion i
+			data.push(parseInt(params[i].cantidad));//almacena el arreglo el elemento de la posicion i
 			break;
-		case '1':
-			labels.push(params[i].Respuesta);
-			data.push(parseInt(params[i].cantidad));
+		case '1'://si la respuesta es 1
+			labels.push(params[i].Respuesta);//almacena el arreglo el elemento de la posicion i
+			data.push(parseInt(params[i].cantidad));//almacena el arreglo el elemento de la posicion i
 			break;
-		default:
-			coment.push(params[i].Respuesta, params[i].cantidad);
+		default://Si la respuesta no ninguna de la anteriores es un comentario
+			coment.push(params[i].Respuesta, params[i].cantidad);//agrega el comentario a un arreglo 
 			break;
 	}	
 }
 console.log('---------------------Arreglo--------------------');
 //console.log(labels);
 //console.log(data);
-	Graficar(labels,data);
+	Graficar(labels,data);// mandamos a llamar el la funcion graficar las respuestas de las preguntas 
 console.log('---------------------Comentarios--------------------------------');
 //console.log(coment);
-	getComent(coment)
+	getComent(coment);// mandamos a llamar el la funcion getCometen que es donde apareceran los comentarios
 }
-function abierta(params) {
-	var coment=[];
-	for (let i = 0; i < params.length; i++) {
-		coment.push(params[i].Respuesta, params[i].cantidad);
+function abierta(params)//para esta funcion solo se mostraran los comentarios
+ {
+	var coment=[];//Declaramos un arreglo para los comnetarios
+	for (let i = 0; i < params.length; i++) {//reorremos  el arreglo que nos llega como parametro
+		coment.push(params[i].Respuesta, params[i].cantidad);// lo almacenamo es el arreglo coment
 	}
 	//console.log(params);
-	getComent(coment);
+	getComent(coment);//escribimos los comentarios en el div de comentarios
 }
-function abiertalarga(params) {
-	var coment=[];
-	for (let i = 0; i < params.length; i++) {
-		coment.push(params[i].Respuesta, params[i].cantidad);
+function abiertalarga(params)//para esta funcion solo se mostraran los comentarios
+ {
+	var coment=[];//Declaramos un arreglo para los comnetarios
+	for (let i = 0; i < params.length; i++) {//reorremos  el arreglo que nos llega como parametro
+		coment.push(params[i].Respuesta, params[i].cantidad);// lo almacenamo es el arreglo coment
 	}
-	getComent(coment);
+	getComent(coment);//escribimos los comentarios en el div de comentarios
 }
 function sino(params) {
 	console.log(params);

@@ -124,7 +124,7 @@
 						<label class="radio-inline h5 ml-2 pr-2"><input type="radio" name="txtvisita" value="no" required>No</label>
 					</div>
 					<div class="col-6 pr-5 pl-4">
-						<button class="btn btn-danger btn-lg btn-block" onclick="noReser()">
+						<button class="btn btn-danger btn-lg btn-block" type="button" onclick="noReser()">
 							NO ES MI INFORMACIÓN.
 						</button>
 					</div>

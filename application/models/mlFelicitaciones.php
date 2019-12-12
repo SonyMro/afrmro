@@ -24,4 +24,14 @@ class mlFelicitaciones extends CI_Model
 			log_message('error', $e->getMessage());
 		}
 	}
+	public function feliciataciones()
+	{
+		$query =  $this->db->get('felicitaciones');
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return null;
+		}
+
+	}
 }

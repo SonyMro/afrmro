@@ -28,12 +28,22 @@ class cllFelicitaciones extends CI_Controller
 			}
 					
 	}
-	public function getFelicitaciones()//Se carga la vista de de feliciataciones
+	public function getFelicitaciones() //Se carga la vista de de feliciataciones
 	{
-		$Navbar['verNav'] = true;
-		$this->load->view('../views/complementos/header', $Navbar);//se carga el encabezado
-		$this->load->view('vmfelicitaciones');// se carga el body 
-		$this->load->view('../views/complementos/footer');// se carga el pie de pagina
-	}
+		$ver = $this->mlFelicitaciones->feliciataciones();
+		if ($ver != null) {
+			$Navbar['verNav'] = true;
+			$dat['fel']=$ver;
+			$this->load->view('../views/complementos/header', $Navbar); //se carga el encabezado  feliciataciones()
+			$this->load->view('vmfelicitaciones', $dat); // se carga el body 
+			$this->load->view('../views/complementos/footer'); // se carga el pie de pagina
+		} else { 
+				$Navbar['verNav'] = true;
+			$this->load->view('../views/complementos/header', $Navbar); //se carga el encabezado  feliciataciones()
+			$this->load->view('vmfelicitaciones'); // se carga el body 
+			$this->load->view('../views/complementos/footer'); // se carga el pie de pagina
+		}
+	} 
+		
 	
 }

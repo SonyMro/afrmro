@@ -81,7 +81,7 @@ if ($this->session->userdata("logueado")) {
 				</a>
 			</div>
 			<div class="p-3">
-				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllBuzon/QuejasSugerencias'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
+				<a class="btn btn-success" href="<?php echo base_url('/index.php/cllFelicitaciones/getFelicitaciones'); ?>" style="bottom:100px; height:200px; width:250px;"><strong style="color:aliceblue;">
 						<h5>Gestionar <br></h5>
 						<h3>
 							<font color='#f4d03f'>Felicitaciones.</font>
